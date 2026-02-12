@@ -1,5 +1,6 @@
 import React from 'react';
 import { Facebook, Twitter, Instagram, Linkedin } from 'lucide-react';
+import { Logo } from './Logo';
 
 export const Footer: React.FC = () => {
   return (
@@ -7,10 +8,7 @@ export const Footer: React.FC = () => {
       <div className="container mx-auto px-6">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-12 mb-16">
           <div className="space-y-4">
-            <div className="flex items-center gap-2">
-              <div className="w-6 h-6 bg-brand-900 rounded flex items-center justify-center text-white font-bold text-xs">M</div>
-              <span className="font-bold text-brand-900">Meeran Enterprises</span>
-            </div>
+            <Logo className="h-8" />
             <p className="text-sm text-gray-500">
               Redefining athletic safety through material science and ergonomic design.
             </p>

@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Globe, ShoppingBag, Menu, Search, X, ChevronRight } from 'lucide-react';
+import { Logo } from './Logo';
 
 const TrackingModal: React.FC<{ isOpen: boolean; onClose: () => void }> = ({ isOpen, onClose }) => {
   const [trackingId, setTrackingId] = useState('');
@@ -287,11 +288,8 @@ export const Header: React.FC<{
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ease-in-out ${isScrolled ? 'bg-white/90 backdrop-blur-md shadow-sm py-4' : 'bg-transparent py-6'}`}
     >
       <div className="container mx-auto px-6 flex items-center justify-between">
-        <button onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })} className="flex items-center gap-3 z-50 relative hover:opacity-80 transition-opacity">
-          <div className="w-8 h-8 bg-brand-900 rounded-lg flex items-center justify-center text-white font-bold text-lg shadow-sm">M</div>
-          <span className="text-xl font-bold tracking-tight text-brand-900 flex items-center">
-            Meeran<span className="font-medium text-gray-400 ml-1">Enterprises</span>
-          </span>
+        <button onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })} className="z-50 relative hover:opacity-80 transition-opacity">
+          <Logo className="h-9" />
         </button>
 
         <nav className="hidden md:flex items-center gap-8 text-sm font-medium">
