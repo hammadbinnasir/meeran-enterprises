@@ -246,6 +246,7 @@ export const Header: React.FC<{
   const navLinks = [
     { label: 'Products', href: '#products' },
     { label: 'Technology', href: '#technology' },
+    { label: 'Global Hub', href: '#location' },
     { label: 'Logistics', href: '#logistics' },
     { label: 'Wholesale', href: '#wholesale' },
   ];

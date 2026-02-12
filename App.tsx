@@ -3,6 +3,7 @@ import { Header } from './components/Header';
 import { Hero } from './components/Hero';
 import { Technology } from './components/Technology';
 import { ProductShowcase } from './components/ProductShowcase';
+import { Location } from './components/Location';
 import { Logistics } from './components/Logistics';
 import { Wholesale } from './components/Wholesale';
 import { Footer } from './components/Footer';
@@ -35,6 +36,7 @@ function App() {
         <Hero />
         <Technology />
         <ProductShowcase onAddToCart={addToCart} />
+        <Location />
         <Logistics />
         <Wholesale />
       </main>
