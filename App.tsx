@@ -1,7 +1,7 @@
 import React from 'react';
 import { Header } from './components/Header';
 import { Hero } from './components/Hero';
-import { TrustBar } from './components/TrustBar';
+import { Technology } from './components/Technology';
 import { ProductShowcase } from './components/ProductShowcase';
 import { Logistics } from './components/Logistics';
 import { Wholesale } from './components/Wholesale';
@@ -33,7 +33,7 @@ function App() {
       />
       <main>
         <Hero />
-        <TrustBar />
+        <Technology />
         <ProductShowcase onAddToCart={addToCart} />
         <Logistics />
         <Wholesale />
