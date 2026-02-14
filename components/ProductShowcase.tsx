@@ -6,7 +6,6 @@ const products: Product[] = [
   {
     id: 'p1',
     name: 'Hard Shell Knee Pads',
-    price: 129.00,
     description: 'Experience top-tier comfort and performance with the Imperial DKP Tactical Knee Pads. Designed to give full range of motion in extreme tactical situations. Molded with non-slip, flexible thermoplastic polyurethane (TPU) plates, these knee pads deflect blows from flying debris and provide protection on hard surfaces. Made with high tenacity, air-textured DuPont Ultra Cordura nylon materials, these knee pads offer superior tear and abrasion resistance. They feature dual hook and loop straps with an ergonomic curved form and composed of closed cell foam that ensures excellent cushioning and shock protection. These knee pads are assured not to absorb and hold water.',
     images: ['/assets/images/elite_pro_guard_v3.avif'],
     features: [
@@ -27,7 +26,6 @@ const products: Product[] = [
   {
     id: 'p2',
     name: 'Vector 1 Riot Control Gloves',
-    price: 65.00,
     description: 'Expertly engineered for high-risk operations such as civil disturbances and high-threat level situations. These gloves feature molded hard-shell Carbon-Tek fiber on the knuckles and panels to effectively deflect blows and flying debris. Integrated foam-injected padding provides superior shock protection for the knuckles and wrist while maintaining ergonomic flexibility.',
     images: ['/assets/images/control_gloves_1.avif', '/assets/images/control_gloves_2.avif'],
     features: [
@@ -45,7 +43,6 @@ const products: Product[] = [
   {
     id: 'p3',
     name: 'DNSG Imperial Shin Guard',
-    price: 189.00,
     description: 'The DNSG Imperial Shin Guards provide stealthy, professional-grade protection for law enforcement and tactical teams. Constructed with a durable neoprene outer shell and reinforced stitching, these guards are designed to be silent, form-fitting, and exceptionally impact-resistant. They feature Trion-X™ non-slip technology for maximum durability and grip during high-intensity operations.',
     images: ['/assets/images/knee_pads_protector.jpg'],
     features: [
@@ -62,21 +59,27 @@ const products: Product[] = [
   },
   {
     id: 'p4',
-    name: 'ATX95 All-Terrain Tactical Gloves',
-    price: 45.00,
-    description: 'Standard-issue performance for all-terrain environments. The ATX95 is a versatile, unlined tactical glove designed for maximum tactile sensitivity and hand protection during general law enforcement duties. Featuring a premium leather palm and a secure hook-and-loop closure, these gloves offer the perfect balance of comfort and utility for daily operational use.',
-    images: ['/assets/images/TE959_BLK_1500_1 (1).avif'],
-    features: [
-      'Premium leather palm for enhanced grip and durability',
-      'Unlined design for maximum tactile sensitivity',
-      'Secure Hook-and-Loop wrist closure for a custom fit',
-      'Full finger protection with ergonomic seam placement',
-      'Lightweight construction for all-day comfort',
-      'Stealth black law enforcement finish',
-      '9-1/2 inch extended length for wrist protection',
-      'Model: ATX95 / TE959'
+    name: 'Shell Knee Pads',
+    description: 'Professional-grade protection for high-intensity operations. These shell knee pads are engineered for maximum durability and comfort in all-terrain environments. Featuring a rugged high-impact shell and non-slip surfaces, they provide reliable safety for tactical personnel and law enforcement.',
+    images: [
+      '/assets/images/short-kneepad_1.jpg',
+      '/assets/images/short-kneepad_2.jpg',
+      '/assets/images/short-kneepad_3.jpg',
+      '/assets/images/short-kneepad_4.jpg',
+      '/assets/images/short-kneepad_5.jpg',
+      '/assets/images/short-kneepad_6.jpg'
     ],
-    specs: { material: 'Leather / Synthetic', weight: '110g', certification: 'ASTM D120', impactRating: 'Standard' }
+    features: [
+      'High-impact resistant outer shell for maximum tactical protection',
+      'Dual-strap system with secure hook-and-loop closures',
+      'Ergonomic foam padding for extended wear comfort',
+      'Non-slip grip surface for stability on various terrains',
+      'Lightweight and breathable design',
+      'Stealth black professional finish',
+      'Reinforced stitching for extreme durability',
+      'Model: SKP-95 / Pro-Shell'
+    ],
+    specs: { material: 'Polymer / Nylon', weight: '220gSlice', certification: 'CE Level 1', impactRating: 'Tactical Grade' }
   }
 ];
 
@@ -159,8 +162,7 @@ const ProductModal: React.FC<{ product: Product | null; onClose: () => void; onA
             <span className="inline-block px-2 py-1 bg-brand-50 text-brand-900 text-[10px] font-bold uppercase tracking-wider rounded mb-3">
               {product.id === 'p1' ? 'Best Seller' : 'Tactical Gear'}
             </span>
-            <h3 className="text-xl md:text-2xl font-bold text-gray-900 mb-2 leading-tight">{product.name}</h3>
-            <p className="text-brand-600 font-medium text-lg mb-6">${product.price.toFixed(2)}</p>
+            <h3 className="text-xl md:text-2xl font-bold text-gray-900 mb-6 leading-tight">{product.name}</h3>
 
             <div className="mb-8">
               <h4 className="text-xs font-bold text-gray-400 uppercase tracking-widest mb-3">Product Details</h4>
@@ -252,7 +254,6 @@ const ProductCard: React.FC<{
             <h3 className="text-base font-bold text-gray-900 mb-1 leading-tight truncate">{product.name}</h3>
             <p className="text-[10px] text-gray-500 line-clamp-2 pr-2">{product.description}</p>
           </div>
-          <span className="text-sm font-semibold text-brand-600 ml-2">${product.price}</span>
         </div>
 
         <div className="mt-auto space-y-4">

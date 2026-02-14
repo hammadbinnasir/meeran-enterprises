@@ -95,7 +95,6 @@ const CheckoutModal: React.FC<{
 }> = ({ isOpen, onClose, items, onSuccess }) => {
   const [step, setStep] = useState<'form' | 'processing' | 'success'>('form');
   const [formData, setFormData] = useState({ name: '', email: '', address: '' });
-  const total = items.reduce((sum, item) => sum + item.price, 0);
 
   if (!isOpen) return null;
 
@@ -140,11 +139,11 @@ const CheckoutModal: React.FC<{
 
               <div className="pt-6 border-t border-gray-50 mt-8">
                 <div className="flex justify-between items-center mb-6">
-                  <span className="text-gray-500 font-medium">Order Total</span>
-                  <span className="text-2xl font-bold text-brand-900">${total.toFixed(2)}</span>
+                  <span className="text-gray-500 font-medium">Order items</span>
+                  <span className="text-xl font-bold text-brand-900">{items.length} units</span>
                 </div>
                 <button type="submit" className="w-full py-4 bg-brand-900 text-white rounded-xl font-bold shadow-xl shadow-brand-900/20 hover:bg-brand-800 transition-all active:scale-95">
-                  Confirm & Pay Securely
+                  Confirm Quote Request
                 </button>
               </div>
             </form>
@@ -177,7 +176,6 @@ const CheckoutModal: React.FC<{
 };
 
 const CartDrawer: React.FC<{ isOpen: boolean; onClose: () => void; items: any[]; onRemove: (id: string) => void; onCheckout: () => void }> = ({ isOpen, onClose, items, onRemove, onCheckout }) => {
-  const total = items.reduce((sum, item) => sum + item.price, 0);
 
   return (
     <div className={`fixed inset-0 z-[120] ${isOpen ? 'pointer-events-auto' : 'pointer-events-none'}`}>
@@ -203,7 +201,6 @@ const CartDrawer: React.FC<{ isOpen: boolean; onClose: () => void; items: any[];
                 <div className="flex-grow">
                   <div className="flex justify-between items-start">
                     <h4 className="font-bold text-gray-900 leading-tight">{item.name}</h4>
-                    <span className="font-semibold text-brand-600">${item.price}</span>
                   </div>
                   <button onClick={() => onRemove(item.id)} className="text-xs text-red-500 font-medium mt-2 hover:underline">Remove</button>
                 </div>
@@ -215,14 +212,14 @@ const CartDrawer: React.FC<{ isOpen: boolean; onClose: () => void; items: any[];
         {items.length > 0 && (
           <div className="p-6 border-t border-gray-100 bg-gray-50/50 space-y-4">
             <div className="flex justify-between items-center text-lg font-bold">
-              <span className="text-gray-900">Total</span>
-              <span className="text-brand-600">${total.toFixed(2)}</span>
+              <span className="text-gray-900">Items</span>
+              <span className="text-brand-600">{items.length}</span>
             </div>
             <button
               onClick={onCheckout}
               className="w-full py-4 bg-brand-900 text-white rounded-xl font-bold shadow-lg shadow-brand-900/10 hover:bg-brand-800 transition-all active:scale-95"
             >
-              Secure Checkout
+              Secure Quote Request
             </button>
           </div>
         )}

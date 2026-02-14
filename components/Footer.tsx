@@ -1,5 +1,5 @@
 import React from 'react';
-import { Facebook, Twitter, Instagram, Linkedin } from 'lucide-react';
+import { Facebook, Twitter, Instagram, Linkedin, Mail } from 'lucide-react';
 import { Logo } from './Logo';
 
 export const Footer: React.FC = () => {
@@ -43,8 +43,14 @@ export const Footer: React.FC = () => {
               <a href="#" className="text-gray-400 hover:text-brand-600"><Linkedin size={20} /></a>
             </div>
             <div className="text-sm text-gray-500">
-              <p>support@meeran.com</p>
-              <p>+1 (800) 555-0123</p>
+              <p className="flex items-center gap-2 hover:text-brand-600 transition-colors">
+                <Mail size={14} />
+                support@meeran.com
+              </p>
+              <p className="flex items-center gap-2 mt-2 hover:text-brand-600 transition-colors">
+                <span className="font-bold">WhatsApp:</span>
+                +92 300 0600903
+              </p>
             </div>
           </div>
         </div>

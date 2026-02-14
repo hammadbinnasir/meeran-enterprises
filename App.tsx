@@ -7,6 +7,7 @@ import { Location } from './components/Location';
 import { Logistics } from './components/Logistics';
 import { Wholesale } from './components/Wholesale';
 import { Footer } from './components/Footer';
+import { WhatsAppButton } from './components/WhatsAppButton';
 
 import { Product } from './types';
 
@@ -41,6 +42,7 @@ function App() {
         <Wholesale />
       </main>
       <Footer />
+      <WhatsAppButton />
     </div>
   );
 }
