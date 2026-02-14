@@ -170,7 +170,7 @@ const ProductModal: React.FC<{ product: Product | null; onClose: () => void; onA
 
               {product.features && (
                 <div className="mt-4">
-                  <h5 className="text-[10px] font-bold text-gray-800 uppercase tracking-widest mb-2">Product Specs</h5>
+                  <h5 className="text-[10px] font-bold text-gray-800 uppercase tracking-widest mb-2">Tactical Specifications</h5>
                   <ul className="space-y-2">
                     {product.features.map((feature, idx) => (
                       <li key={idx} className="flex gap-2 text-xs text-gray-600 leading-tight">
@@ -261,7 +261,7 @@ const ProductCard: React.FC<{
             onClick={(e) => { e.stopPropagation(); setShowSpecs(!showSpecs); }}
             className="w-full flex items-center justify-between text-[10px] font-bold uppercase tracking-widest text-gray-400 hover:text-brand-600 transition-colors py-2 border-b border-gray-100"
           >
-            <span>Tech Specs</span>
+            <span>Tactical Specs</span>
             {showSpecs ? <Minus size={14} /> : <Plus size={14} />}
           </button>
 
