@@ -121,11 +121,11 @@ const ProductModal: React.FC<{ product: Product | null; onClose: () => void; onA
         </button>
 
         {/* Image Section */}
-        <div className="w-full md:w-2/3 bg-gray-50 flex items-center justify-center p-6 md:p-12 relative overflow-hidden group">
+        <div className="w-full md:w-2/3 bg-gray-50 flex items-center justify-center p-4 md:p-12 relative overflow-hidden group">
           <img
             src={product.images[currentImageIndex]}
             alt={product.name}
-            className="w-full h-full object-contain max-h-[40vh] md:max-h-[70vh] drop-shadow-xl transition-all duration-500"
+            className="w-full h-full object-contain max-h-[60vh] md:max-h-[70vh] drop-shadow-xl transition-all duration-500"
           />
 
           {product.images.length > 1 && (
@@ -226,7 +226,7 @@ const ProductCard: React.FC<{
   return (
     <div className="group bg-white rounded-2xl shadow-airy hover:shadow-float transition-all duration-500 overflow-hidden border border-white hover:border-gray-100 flex flex-col h-full">
       <div
-        className="relative aspect-[16/10] bg-gray-50 overflow-hidden cursor-zoom-in p-6"
+        className="relative aspect-square md:aspect-[16/10] bg-gray-50 overflow-hidden cursor-zoom-in p-4 sm:p-6"
         onClick={() => onOpen(product)}
       >
         <img
