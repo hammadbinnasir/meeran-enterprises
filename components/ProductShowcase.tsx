@@ -5,14 +5,14 @@ import { Product } from '../types';
 const products: Product[] = [
   {
     id: 'p1',
-    name: 'Hard Shell Knee Pads',
-    description: 'Experience top-tier comfort and performance with the Imperial DKP Tactical Knee Pads. Designed to give full range of motion in extreme tactical situations. Molded with non-slip, flexible thermoplastic polyurethane (TPU) plates, these knee pads deflect blows from flying debris and provide protection on hard surfaces. Made with high tenacity, air-textured DuPont Ultra Cordura nylon materials, these knee pads offer superior tear and abrasion resistance. They feature dual hook and loop straps with an ergonomic curved form and composed of closed cell foam that ensures excellent cushioning and shock protection. These knee pads are assured not to absorb and hold water.',
+    name: 'Hard Shell Tactical Knee Pads',
+    description: 'Experience top-tier comfort and performance with the Tactical Pro DKP Knee Pads. Designed to give full range of motion in extreme tactical situations. Molded with non-slip, flexible thermoplastic polyurethane (TPU) plates, these knee pads deflect blows from flying debris and provide protection on hard surfaces. Made with high tenacity, air-textured professional-grade synthetic materials, these knee pads offer superior tear and abrasion resistance. They feature dual hook and loop straps with an ergonomic curved form and composed of closed cell foam that ensures excellent cushioning and shock protection. These knee pads are assured not to absorb and hold water.',
     images: ['/assets/images/elite_pro_guard_v3.avif'],
     features: [
       'Hard shell polyurethane thermoplastic non-slip caps for added durability',
       'Reinforced foam padding for optimal shock absorption and comfort',
       'Two adjustable elastic straps with Velcro and D-rings for secure and custom fit',
-      'High tenacity, air-textured DuPont Ultra Cordura nylon outer materials for superior abrasion and tear resistance',
+      'High tenacity, air-textured professional synthetic outer materials for superior abrasion and tear resistance',
       'Non-reflective tone-on-tone grommets with a dull finish for a sleek look',
       'Ergonomically curved form for enhanced comfort',
       'Interior name tags for personal identification',
@@ -25,30 +25,30 @@ const products: Product[] = [
   },
   {
     id: 'p2',
-    name: 'Vector 1 Riot Control Gloves',
-    description: 'Expertly engineered for high-risk operations such as civil disturbances and high-threat level situations. These gloves feature molded hard-shell Carbon-Tek fiber on the knuckles and panels to effectively deflect blows and flying debris. Integrated foam-injected padding provides superior shock protection for the knuckles and wrist while maintaining ergonomic flexibility.',
+    name: 'Defender Riot Control Gloves',
+    description: 'Expertly engineered for high-risk operations such as civil disturbances and high-threat level situations. These gloves feature molded hard-shell carbon-composite on the knuckles and panels to effectively deflect blows and flying debris. Integrated foam-injected padding provides superior shock protection for the knuckles and wrist while maintaining ergonomic flexibility.',
     images: ['/assets/images/control_gloves_1.avif', '/assets/images/control_gloves_2.avif'],
     features: [
-      'Molded hard-shell Carbon-Tek™ fiber knuckles for maximum impact deflection',
+      'Molded hard-shell carbon-composite knuckles for maximum impact deflection',
       'Foam-injected padding for enhanced knuckle and wrist protection',
       'Durable leather shell with reinforced palms for superior longevity',
       'Double-reinforced stitching in high-stress areas',
       'Elasticized wrist with Velcro® closure for a secure, customized fit',
       'Inner lining of bonded breathable tricot for moisture management',
       'Designed specifically for riot control and high-risk inmate movement',
-      'Model: Vector 1'
+      'Model: Defender Series'
     ],
-    specs: { material: 'Leather / Carbon-Tek', weight: '150g', certification: 'CE EN1621', impactRating: 'Level 1' }
+    specs: { material: 'Leather / Carbon-Composite', weight: '150g', certification: 'CE EN1621', impactRating: 'Level 1' }
   },
   {
     id: 'p3',
-    name: 'DNSG Imperial Shin Guard',
-    description: 'The DNSG Imperial Shin Guards provide stealthy, professional-grade protection for law enforcement and tactical teams. Constructed with a durable neoprene outer shell and reinforced stitching, these guards are designed to be silent, form-fitting, and exceptionally impact-resistant. They feature Trion-X™ non-slip technology for maximum durability and grip during high-intensity operations.',
+    name: 'DNSG Pro Shin Guard',
+    description: 'The DNSG Tactical Shin Guards provide stealthy, professional-grade protection for law enforcement and tactical teams. Constructed with a durable neoprene outer shell and reinforced stitching, these guards are designed to be silent, form-fitting, and exceptionally impact-resistant. They feature Grip-Tech™ non-slip technology for maximum durability and grip during high-intensity operations.',
     images: ['/assets/images/knee_pads_protector.jpg'],
     features: [
       'Stealthy durable neoprene outer shell with reinforced stitching',
       'Shock-absorbing 10mm closed-cell foam for silent operation',
-      'Trion-X™ Non-slip reinforced grip technology on key impact zones',
+      'Grip-Tech™ Non-slip reinforced grip technology on key impact zones',
       'Additional exterior padded protection in the shin section to deflect debris',
       'Multiple adjustable elastic straps and Velcro® closures for a secure fit',
       'Can be worn comfortably inside or outside of gear',
@@ -79,7 +79,7 @@ const products: Product[] = [
       'Reinforced stitching for extreme durability',
       'Model: SKP-95 / Pro-Shell'
     ],
-    specs: { material: 'Polymer / Nylon', weight: '220gSlice', certification: 'CE Level 1', impactRating: 'Tactical Grade' }
+    specs: { material: 'Polymer / Nylon', weight: '220g', certification: 'CE Level 1', impactRating: 'Tactical Grade' }
   }
 ];
 
@@ -112,7 +112,7 @@ const ProductModal: React.FC<{ product: Product | null; onClose: () => void; onA
       />
 
       {/* Modal Content */}
-      <div className="relative w-full max-w-5xl bg-white rounded-2xl shadow-2xl overflow-hidden animate-zoom-in flex flex-col md:flex-row max-h-[90vh]">
+      <div className="relative w-full max-w-5xl bg-white rounded-2xl shadow-2xl overflow-hidden animate-zoom-in flex flex-col md:flex-row max-h-[95vh] md:max-h-[90vh]">
         <button
           onClick={onClose}
           className="absolute top-4 right-4 z-20 p-2 bg-white/80 backdrop-blur rounded-full text-gray-800 hover:bg-gray-100 transition-colors shadow-sm"
@@ -125,7 +125,7 @@ const ProductModal: React.FC<{ product: Product | null; onClose: () => void; onA
           <img
             src={product.images[currentImageIndex]}
             alt={product.name}
-            className="w-full h-full object-contain max-h-[60vh] md:max-h-[70vh] drop-shadow-xl transition-all duration-500"
+            className="w-full h-full object-contain max-h-[40vh] md:max-h-[70vh] drop-shadow-xl transition-all duration-500"
           />
 
           {product.images.length > 1 && (

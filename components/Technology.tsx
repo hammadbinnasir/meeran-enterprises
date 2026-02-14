@@ -4,15 +4,15 @@ import { Shield, Brain, Zap, Award, Globe, CheckCircle2 } from 'lucide-react';
 const technologies = [
     {
         icon: <Brain className="w-8 h-8 text-brand-500" />,
-        title: "Carbon-Tek™ Fiber",
+        title: "Carbon Composite",
         description: "Multi-axis carbon weave engineered for maximum impact deflection while maintaining ultra-lightweight performance.",
         accent: "bg-blue-500/10",
         border: "border-blue-500/20"
     },
     {
         icon: <Shield className="w-8 h-8 text-brand-500" />,
-        title: "DuPont™ Cordura®",
-        description: "High-tenacity, air-textured military-grade nylon for superior abrasion, tear, and scuff resistance in extreme conditions.",
+        title: "Tactical Aramid",
+        description: "High-tenacity, air-textured professional-grade nylon for superior abrasion, tear, and scuff resistance in extreme conditions.",
         accent: "bg-brand-500/10",
         border: "border-brand-500/20"
     },
@@ -49,7 +49,7 @@ export const Technology: React.FC = () => {
                             Driven by <span className="text-brand-500">Material Science</span>
                         </h3>
                         <p className="text-gray-400 text-lg mb-12 leading-relaxed max-w-xl">
-                            Our gear isn't just manufactured; it's engineered. We partner with global material leaders like DuPont™ to integrate the latest ballistic and impact technologies into every piece of gear.
+                            Our gear isn't just manufactured; it's engineered. We use advanced synthetic fibers and high-impact polymers to integrate the latest protective technologies into every piece of gear.
                         </p>
 
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -95,11 +95,11 @@ export const Technology: React.FC = () => {
 
                 {/* Trusted By / Stats Row */}
                 <div className="mt-20 pt-20 border-t border-white/5 flex flex-wrap justify-between items-center gap-8">
-                    <div className="flex items-center gap-8 opacity-40 hover:opacity-100 transition-opacity">
-                        <span className="text-xs font-bold text-white uppercase tracking-[0.3em]">Material Partners:</span>
-                        <span className="text-xl font-black text-white italic">DUPONT™</span>
-                        <span className="text-xl font-black text-white">CORDURA®</span>
-                        <span className="text-xl font-black text-white tracking-tighter">HEX-TEC</span>
+                    <div className="flex items-center gap-8 opacity-40 hover:opacity-100 transition-opacity text-white overflow-x-auto no-scrollbar py-2">
+                        <span className="text-xs font-bold uppercase tracking-[0.3em] whitespace-nowrap">Material Partners:</span>
+                        <span className="text-xl font-black italic whitespace-nowrap tracking-wide">DUPONT™</span>
+                        <span className="text-xl font-black whitespace-nowrap tracking-wide">CORDURA®</span>
+                        <span className="text-xl font-black tracking-tighter whitespace-nowrap">HEX-TEC™</span>
                     </div>
                     <div className="flex items-center gap-12">
                         <div className="text-center">

@@ -47,10 +47,10 @@ export const Footer: React.FC = () => {
                 <Mail size={14} />
                 support@meeran.com
               </p>
-              <p className="flex items-center gap-2 mt-2 hover:text-brand-600 transition-colors">
+              <a href="https://wa.me/923000600903" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 mt-2 hover:text-brand-600 transition-colors">
                 <span className="font-bold">WhatsApp:</span>
                 +92 300 0600903
-              </p>
+              </a>
             </div>
           </div>
         </div>
