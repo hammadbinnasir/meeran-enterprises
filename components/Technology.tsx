@@ -92,15 +92,7 @@ export const Technology: React.FC = () => {
                         ))}
                     </div>
                 </div>
-
-                {/* Trusted By / Stats Row */}
-                <div className="mt-20 pt-20 border-t border-white/5 flex flex-wrap justify-between items-center gap-8">
-                    <div className="flex items-center gap-8 opacity-40 hover:opacity-100 transition-opacity text-white overflow-x-auto no-scrollbar py-2">
-                        <span className="text-xs font-bold uppercase tracking-[0.3em] whitespace-nowrap">Material Partners:</span>
-                        <span className="text-xl font-black italic whitespace-nowrap tracking-wide">DUPONT™</span>
-                        <span className="text-xl font-black whitespace-nowrap tracking-wide">CORDURA®</span>
-                        <span className="text-xl font-black tracking-tighter whitespace-nowrap">HEX-TEC™</span>
-                    </div>
+                <div className="mt-20 pt-20 border-t border-white/5 flex justify-end items-center gap-8">
                     <div className="flex items-center gap-12">
                         <div className="text-center">
                             <span className="block text-3xl font-bold text-white">45+</span>
