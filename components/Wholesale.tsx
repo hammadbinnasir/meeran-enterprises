@@ -36,17 +36,11 @@ export const Wholesale: React.FC = () => {
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
               <button
-                onClick={() => window.open('https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf', '_blank')}
+                onClick={() => setShowApplication(true)}
                 className="px-8 py-4 bg-white text-brand-900 rounded-xl font-bold hover:bg-gray-100 transition-colors flex items-center justify-center gap-2"
               >
-                Download 2026 Catalog
-                <ArrowUpRight size={18} />
-              </button>
-              <button
-                onClick={() => setShowApplication(true)}
-                className="px-8 py-4 border border-gray-700 text-white rounded-xl font-medium hover:border-white transition-colors"
-              >
                 Distributor Application
+                <ArrowUpRight size={18} />
               </button>
             </div>
           </div>
