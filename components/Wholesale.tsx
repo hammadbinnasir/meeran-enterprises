@@ -65,19 +65,28 @@ export const Wholesale: React.FC = () => {
             ) : (
               <form onSubmit={handleSubmit} className="space-y-4">
                 <div className="grid grid-cols-2 gap-4">
-                  <input required type="text" placeholder="Company Name" className="w-full bg-white/10 border border-white/10 rounded-lg px-4 py-3 text-white placeholder-gray-500 focus:outline-none focus:border-brand-500 transition-colors" />
+                  <input required type="text" placeholder="Full Name" className="w-full bg-white/10 border border-white/10 rounded-lg px-4 py-3 text-white placeholder-gray-500 focus:outline-none focus:border-brand-500 transition-colors" />
                   <input required type="email" placeholder="Email Address" className="w-full bg-white/10 border border-white/10 rounded-lg px-4 py-3 text-white placeholder-gray-500 focus:outline-none focus:border-brand-500 transition-colors" />
                 </div>
-                <select required className="w-full bg-white/10 border border-white/10 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-brand-500 transition-colors appearance-none scrollbar-hide">
-                  <option value="" className="bg-brand-900 text-gray-400">Select Region...</option>
-                  <option value="NA" className="bg-brand-900 text-white">North America</option>
-                  <option value="EU" className="bg-brand-900 text-white">Europe</option>
-                  <option value="APAC" className="bg-brand-900 text-white">Asia Pacific</option>
-                  <option value="ME" className="bg-brand-900 text-white">Middle East</option>
-                  <option value="SA" className="bg-brand-900 text-white">South America</option>
-                  <option value="AF" className="bg-brand-900 text-white">Africa</option>
-                </select>
-                <textarea required placeholder="Message / Volume Estimate" rows={3} className="w-full bg-white/10 border border-white/10 rounded-lg px-4 py-3 text-white placeholder-gray-500 focus:outline-none focus:border-brand-500 transition-colors"></textarea>
+                <div className="grid grid-cols-2 gap-4">
+                  <select required className="w-full bg-white/10 border border-white/10 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-brand-500 transition-colors appearance-none scrollbar-hide">
+                    <option value="" className="bg-brand-900 text-gray-400">Region...</option>
+                    <option value="NA" className="bg-brand-900 text-white">North America</option>
+                    <option value="EU" className="bg-brand-900 text-white">Europe</option>
+                    <option value="APAC" className="bg-brand-900 text-white">Asia Pacific</option>
+                    <option value="ME" className="bg-brand-900 text-white">Middle East</option>
+                    <option value="SA" className="bg-brand-900 text-white">South America</option>
+                    <option value="AF" className="bg-brand-900 text-white">Africa</option>
+                  </select>
+                  <select required className="w-full bg-white/10 border border-white/10 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-brand-500 transition-colors appearance-none scrollbar-hide">
+                    <option value="" className="bg-brand-900 text-gray-400">Unit Range...</option>
+                    <option value="50-100" className="bg-brand-900 text-white">50 - 100 Units</option>
+                    <option value="100-500" className="bg-brand-900 text-white">100 - 500 Units</option>
+                    <option value="500-1000" className="bg-brand-900 text-white">500 - 1000 Units</option>
+                    <option value="1000+" className="bg-brand-900 text-white">1000+ Units</option>
+                  </select>
+                </div>
+                <textarea required placeholder="Additional Details / Requirements" rows={3} className="w-full bg-white/10 border border-white/10 rounded-lg px-4 py-3 text-white placeholder-gray-500 focus:outline-none focus:border-brand-500 transition-colors"></textarea>
                 <button
                   type="submit"
                   disabled={submitStatus === 'submitting'}
