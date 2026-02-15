@@ -1,21 +1,41 @@
-import React, { useState } from 'react';
-import { ArrowUpRight, X, CheckCircle, Building2, User, Mail, Phone, Globe, CreditCard, FileText, Briefcase } from 'lucide-react';
+import React, { useState, useRef } from 'react';
+import { ArrowUpRight, X, CheckCircle, Building2, User, Mail, Phone, Globe, CreditCard, FileText, Briefcase, AlertCircle } from 'lucide-react';
+import emailjs from '@emailjs/browser';
 
 export const Wholesale: React.FC = () => {
   const [showApplication, setShowApplication] = useState(false);
-  const [submitStatus, setSubmitStatus] = useState<'idle' | 'submitting' | 'success'>('idle');
+  const [submitStatus, setSubmitStatus] = useState<'idle' | 'submitting' | 'success' | 'error'>('idle');
+  const quickInquiryForm = useRef<HTMLFormElement>(null);
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     setSubmitStatus('submitting');
-    // Simulate API call
-    setTimeout(() => {
-      setSubmitStatus('success');
+
+    if (quickInquiryForm.current) {
+      emailjs.sendForm(
+        'service_ua0ajq1',
+        'template_62vacwq',
+        quickInquiryForm.current,
+        'YmXw6pC7C6bC7B6z9' // Note: This is a placeholder public key. The user should provide their own or I can ask.
+      )
+        .then(() => {
+          setSubmitStatus('success');
+          quickInquiryForm.current?.reset();
+        })
+        .catch((error) => {
+          console.error('EmailJS Error:', error);
+          setSubmitStatus('error');
+        });
+    } else {
+      // Fallback for application modal or other forms
       setTimeout(() => {
-        setShowApplication(false);
-        setSubmitStatus('idle');
-      }, 3000);
-    }, 1500);
+        setSubmitStatus('success');
+        setTimeout(() => {
+          setShowApplication(false);
+          setSubmitStatus('idle');
+        }, 3000);
+      }, 1500);
+    }
   };
 
   return (
@@ -62,14 +82,28 @@ export const Wholesale: React.FC = () => {
                   Send another inquiry
                 </button>
               </div>
+            ) : submitStatus === 'error' ? (
+              <div className="py-8 text-center space-y-4 animate-fade-in">
+                <div className="w-16 h-16 bg-red-500/20 text-red-500 rounded-full flex items-center justify-center mx-auto">
+                  <AlertCircle size={32} />
+                </div>
+                <p className="text-lg font-medium">Submission Failed</p>
+                <p className="text-sm text-gray-400">There was an error sending your message. Please try again.</p>
+                <button
+                  onClick={() => setSubmitStatus('idle')}
+                  className="text-xs text-brand-500 hover:underline"
+                >
+                  Try again
+                </button>
+              </div>
             ) : (
-              <form onSubmit={handleSubmit} className="space-y-4">
+              <form ref={quickInquiryForm} onSubmit={handleSubmit} className="space-y-4">
                 <div className="grid grid-cols-2 gap-4">
-                  <input required type="text" placeholder="Full Name" className="w-full bg-white/10 border border-white/10 rounded-lg px-4 py-3 text-white placeholder-gray-500 focus:outline-none focus:border-brand-500 transition-colors" />
-                  <input required type="email" placeholder="Email Address" className="w-full bg-white/10 border border-white/10 rounded-lg px-4 py-3 text-white placeholder-gray-500 focus:outline-none focus:border-brand-500 transition-colors" />
+                  <input name="user_name" required type="text" placeholder="Full Name" className="w-full bg-white/10 border border-white/10 rounded-lg px-4 py-3 text-white placeholder-gray-500 focus:outline-none focus:border-brand-500 transition-colors" />
+                  <input name="user_email" required type="email" placeholder="Email Address" className="w-full bg-white/10 border border-white/10 rounded-lg px-4 py-3 text-white placeholder-gray-500 focus:outline-none focus:border-brand-500 transition-colors" />
                 </div>
                 <div className="grid grid-cols-2 gap-4">
-                  <select required className="w-full bg-white/10 border border-white/10 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-brand-500 transition-colors appearance-none scrollbar-hide">
+                  <select name="user_region" required className="w-full bg-white/10 border border-white/10 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-brand-500 transition-colors appearance-none scrollbar-hide">
                     <option value="" className="bg-brand-900 text-gray-400">Region...</option>
                     <option value="NA" className="bg-brand-900 text-white">North America</option>
                     <option value="EU" className="bg-brand-900 text-white">Europe</option>
@@ -78,7 +112,7 @@ export const Wholesale: React.FC = () => {
                     <option value="SA" className="bg-brand-900 text-white">South America</option>
                     <option value="AF" className="bg-brand-900 text-white">Africa</option>
                   </select>
-                  <select required className="w-full bg-white/10 border border-white/10 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-brand-500 transition-colors appearance-none scrollbar-hide">
+                  <select name="unit_range" required className="w-full bg-white/10 border border-white/10 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-brand-500 transition-colors appearance-none scrollbar-hide">
                     <option value="" className="bg-brand-900 text-gray-400">Unit Range...</option>
                     <option value="50-100" className="bg-brand-900 text-white">50 - 100 Units</option>
                     <option value="100-500" className="bg-brand-900 text-white">100 - 500 Units</option>
@@ -86,7 +120,7 @@ export const Wholesale: React.FC = () => {
                     <option value="1000+" className="bg-brand-900 text-white">1000+ Units</option>
                   </select>
                 </div>
-                <textarea required placeholder="Additional Details / Requirements" rows={3} className="w-full bg-white/10 border border-white/10 rounded-lg px-4 py-3 text-white placeholder-gray-500 focus:outline-none focus:border-brand-500 transition-colors"></textarea>
+                <textarea name="message" required placeholder="Additional Details / Requirements" rows={3} className="w-full bg-white/10 border border-white/10 rounded-lg px-4 py-3 text-white placeholder-gray-500 focus:outline-none focus:border-brand-500 transition-colors"></textarea>
                 <button
                   type="submit"
                   disabled={submitStatus === 'submitting'}
