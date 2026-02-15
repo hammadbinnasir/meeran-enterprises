@@ -3,11 +3,11 @@ import { Plane, Ship, MapPin, Clock, ArrowLeft, ArrowRight } from 'lucide-react'
 import { ShippingRegion } from '../types';
 
 const regions: ShippingRegion[] = [
-  { id: '1', region: 'North America', time: '1-3 Business Days', cost: 'Free > $150', status: 'Fast' },
-  { id: '2', region: 'European Union', time: '2-4 Business Days', cost: '€15 Flat Rate', status: 'On Time' },
-  { id: '3', region: 'Asia Pacific', time: '3-6 Business Days', cost: '$20 Flat Rate', status: 'On Time' },
-  { id: '4', region: 'Middle East', time: '3-5 Business Days', cost: '$25 Flat Rate', status: 'Fast' },
-  { id: '5', region: 'Australia/NZ', time: '4-7 Business Days', cost: 'AUD 30', status: 'Delay' },
+  { id: '1', region: 'North America', time: '1-3 Business Days', status: 'Fast' },
+  { id: '2', region: 'European Union', time: '2-4 Business Days', status: 'On Time' },
+  { id: '3', region: 'Asia Pacific', time: '3-6 Business Days', status: 'On Time' },
+  { id: '4', region: 'Middle East', time: '3-5 Business Days', status: 'Fast' },
+  { id: '5', region: 'Australia/NZ', time: '4-7 Business Days', status: 'Delay' },
 ];
 
 export const Logistics: React.FC = () => {
@@ -90,7 +90,6 @@ export const Logistics: React.FC = () => {
 
               <div className="pt-4 border-t border-gray-100 flex items-center justify-between">
                 <span className="text-xs font-medium text-gray-400 uppercase">Express Available</span>
-                <span className="text-sm font-semibold text-gray-900">{item.cost}</span>
               </div>
             </div>
           ))}

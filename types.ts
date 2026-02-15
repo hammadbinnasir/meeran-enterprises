@@ -17,7 +17,7 @@ export interface ShippingRegion {
   id: string;
   region: string;
   time: string;
-  cost: string;
+  cost?: string;
   status: 'On Time' | 'Delay' | 'Fast';
 }
 
