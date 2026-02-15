@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Globe, ShoppingBag, Menu, Search, X, ChevronRight } from 'lucide-react';
 import { Logo } from './Logo';
+import { Link, useLocation } from 'react-router-dom';
 
 const TrackingModal: React.FC<{ isOpen: boolean; onClose: () => void }> = ({ isOpen, onClose }) => {
   const [trackingId, setTrackingId] = useState('');
@@ -241,12 +242,15 @@ export const Header: React.FC<{
   const [isCheckoutOpen, setIsCheckoutOpen] = useState(false);
   const [activeSection, setActiveSection] = useState('');
 
+  const location = useLocation();
+  const isHome = location.pathname === '/';
+
   const navLinks = [
-    { label: 'Products', href: '#products' },
-    { label: 'Technology', href: '#technology' },
-    { label: 'Global Hub', href: '#location' },
-    { label: 'Logistics', href: '#logistics' },
-    { label: 'Wholesale', href: '#wholesale' },
+    { label: 'Products', href: isHome ? '#products' : '/#products' },
+    { label: 'Technology', href: isHome ? '#technology' : '/#technology' },
+    { label: 'Global Hub', href: isHome ? '#location' : '/#location' },
+    { label: 'Logistics', href: isHome ? '#logistics' : '/#logistics' },
+    { label: 'Wholesale', href: isHome ? '#wholesale' : '/#wholesale' },
   ];
 
   useEffect(() => {
@@ -285,18 +289,22 @@ export const Header: React.FC<{
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ease-in-out ${isScrolled ? 'bg-white/90 backdrop-blur-md shadow-sm py-4' : 'bg-transparent py-6'}`}
     >
       <div className="container mx-auto px-6 flex items-center justify-between">
-        <button onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })} className="z-50 relative hover:opacity-80 transition-opacity">
+        <Link to="/" onClick={() => isHome && window.scrollTo({ top: 0, behavior: 'smooth' })} className="z-50 relative hover:opacity-80 transition-opacity">
           <Logo className="h-9" />
-        </button>
+        </Link>
 
         <nav className="hidden md:flex items-center gap-8 text-sm font-medium">
           {navLinks.map((link) => {
-            const isActive = activeSection === link.href.substring(1);
-            return (
+            const isActive = activeSection === link.href.split('#')[1];
+            return isHome ? (
               <a key={link.label} href={link.href} className={`transition-colors relative py-1 ${isActive ? 'text-brand-600 font-bold' : 'text-gray-600 hover:text-brand-600'}`}>
                 {link.label}
                 {isActive && <span className="absolute bottom-0 left-0 w-full h-1 bg-brand-600 rounded-full animate-fade-in"></span>}
               </a>
+            ) : (
+              <Link key={link.label} to={link.href} className="transition-colors text-gray-600 hover:text-brand-600 py-1">
+                {link.label}
+              </Link>
             );
           })}
         </nav>
@@ -318,14 +326,25 @@ export const Header: React.FC<{
           <div className="fixed inset-0 bg-white z-40 flex flex-col pt-24 px-6 md:hidden animate-slide-down overflow-y-auto">
             <div className="flex flex-col space-y-2">
               {navLinks.map((link) => (
-                <a
-                  key={link.label} href={link.href}
-                  className={`flex items-center justify-between text-2xl font-medium py-4 border-b border-gray-100 group active:text-brand-600 ${activeSection === link.href.substring(1) ? 'text-brand-600' : 'text-gray-900'}`}
-                  onClick={() => setIsMobileMenuOpen(false)}
-                >
-                  {link.label}
-                  <ChevronRight size={20} className={activeSection === link.href.substring(1) ? 'text-brand-600' : 'text-gray-300'} />
-                </a>
+                isHome ? (
+                  <a
+                    key={link.label} href={link.href}
+                    className={`flex items-center justify-between text-2xl font-medium py-4 border-b border-gray-100 group active:text-brand-600 ${activeSection === link.href.substring(1) ? 'text-brand-600' : 'text-gray-900'}`}
+                    onClick={() => setIsMobileMenuOpen(false)}
+                  >
+                    {link.label}
+                    <ChevronRight size={20} className={activeSection === link.href.substring(1) ? 'text-brand-600' : 'text-gray-300'} />
+                  </a>
+                ) : (
+                  <Link
+                    key={link.label} to={link.href}
+                    className="flex items-center justify-between text-2xl font-medium py-4 border-b border-gray-100 group text-gray-900"
+                    onClick={() => setIsMobileMenuOpen(false)}
+                  >
+                    {link.label}
+                    <ChevronRight size={20} className="text-gray-300" />
+                  </Link>
+                )
               ))}
             </div>
             <div className="mt-8 space-y-4">

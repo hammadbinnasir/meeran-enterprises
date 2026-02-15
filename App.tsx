@@ -11,8 +11,28 @@ import { WhatsAppButton } from './components/WhatsAppButton';
 
 import { Product } from './types';
 
+import { Routes, Route, useLocation } from 'react-router-dom';
+import { ProductPage } from './components/ProductPage';
+
+const HomePage: React.FC<{ addToCart: (p: Product) => void }> = ({ addToCart }) => (
+  <main>
+    <Hero />
+    <Technology />
+    <ProductShowcase onAddToCart={addToCart} />
+    <Location />
+    <Logistics />
+    <Wholesale />
+  </main>
+);
+
 function App() {
   const [cartItems, setCartItems] = React.useState<Product[]>([]);
+  const location = useLocation();
+
+  // Scroll to top on route change
+  React.useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [location.pathname]);
 
   const addToCart = (product: Product) => {
     setCartItems(prev => [...prev, product]);
@@ -33,14 +53,12 @@ function App() {
         onRemoveFromCart={removeFromCart}
         onClearCart={clearCart}
       />
-      <main>
-        <Hero />
-        <Technology />
-        <ProductShowcase onAddToCart={addToCart} />
-        <Location />
-        <Logistics />
-        <Wholesale />
-      </main>
+
+      <Routes>
+        <Route path="/" element={<HomePage addToCart={addToCart} />} />
+        <Route path="/product/:id" element={<ProductPage onAddToCart={addToCart} />} />
+      </Routes>
+
       <Footer />
       <WhatsAppButton />
     </div>

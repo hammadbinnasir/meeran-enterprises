@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import { Plus, Minus, Info, X, ZoomIn, ChevronLeft, ChevronRight } from 'lucide-react';
+import { Plus, Minus, ZoomIn } from 'lucide-react';
+import { useNavigate } from 'react-router-dom';
 import { Product } from '../types';
 
 const products: Product[] = [
@@ -83,138 +84,13 @@ const products: Product[] = [
   }
 ];
 
-const ProductModal: React.FC<{ product: Product | null; onClose: () => void; onAddToCart: (p: Product) => void }> = ({ product, onClose, onAddToCart }) => {
-  const [isAdded, setIsAdded] = useState(false);
-  const [currentImageIndex, setCurrentImageIndex] = useState(0);
-
-  if (!product) return null;
-
-  const handleAdd = () => {
-    onAddToCart(product);
-    setIsAdded(true);
-    setTimeout(() => setIsAdded(false), 2000);
-  };
-
-  const nextImage = () => {
-    setCurrentImageIndex((prev) => (prev + 1) % product.images.length);
-  };
-
-  const prevImage = () => {
-    setCurrentImageIndex((prev) => (prev - 1 + product.images.length) % product.images.length);
-  };
-
-  return (
-    <div className="fixed inset-0 z-[100] flex items-center justify-center p-4">
-      {/* Backdrop */}
-      <div
-        className="absolute inset-0 bg-black/60 backdrop-blur-md animate-fade-in"
-        onClick={onClose}
-      />
-
-      {/* Modal Content */}
-      <div className="relative w-full max-w-5xl bg-white rounded-2xl shadow-2xl overflow-hidden animate-zoom-in flex flex-col md:flex-row max-h-[95vh] md:max-h-[90vh]">
-        <button
-          onClick={onClose}
-          className="absolute top-4 right-4 z-20 p-2 bg-white/80 backdrop-blur rounded-full text-gray-800 hover:bg-gray-100 transition-colors shadow-sm"
-        >
-          <X size={20} />
-        </button>
-
-        {/* Image Section */}
-        <div className="w-full md:w-2/3 bg-gray-50 flex items-center justify-center p-4 md:p-12 relative overflow-hidden group">
-          <img
-            src={product.images[currentImageIndex]}
-            alt={product.name}
-            className="w-full h-full object-contain max-h-[40vh] md:max-h-[70vh] drop-shadow-xl transition-all duration-500"
-          />
-
-          {product.images.length > 1 && (
-            <>
-              <button
-                onClick={(e) => { e.stopPropagation(); prevImage(); }}
-                className="absolute left-4 top-1/2 -translate-y-1/2 p-2 bg-white/80 backdrop-blur rounded-full text-gray-800 hover:bg-white transition-all shadow-md opacity-0 group-hover:opacity-100"
-              >
-                <ChevronLeft size={24} />
-              </button>
-              <button
-                onClick={(e) => { e.stopPropagation(); nextImage(); }}
-                className="absolute right-4 top-1/2 -translate-y-1/2 p-2 bg-white/80 backdrop-blur rounded-full text-gray-800 hover:bg-white transition-all shadow-md opacity-0 group-hover:opacity-100"
-              >
-                <ChevronRight size={24} />
-              </button>
-
-              <div className="absolute bottom-6 left-1/2 -translate-x-1/2 flex gap-2">
-                {product.images.map((_, idx) => (
-                  <button
-                    key={idx}
-                    onClick={() => setCurrentImageIndex(idx)}
-                    className={`w-2 h-2 rounded-full transition-all ${idx === currentImageIndex ? 'bg-brand-600 w-4' : 'bg-gray-300'}`}
-                  />
-                ))}
-              </div>
-            </>
-          )}
-        </div>
-
-        {/* Details Section */}
-        <div className="w-full md:w-1/3 p-6 md:p-10 bg-white flex flex-col overflow-y-auto">
-          <div className="mb-auto">
-            <span className="inline-block px-2 py-1 bg-brand-50 text-brand-900 text-[10px] font-bold uppercase tracking-wider rounded mb-3">
-              {product.id === 'p1' ? 'Best Seller' : 'Tactical Gear'}
-            </span>
-            <h3 className="text-xl md:text-2xl font-bold text-gray-900 mb-6 leading-tight">{product.name}</h3>
-
-            <div className="mb-8">
-              <h4 className="text-xs font-bold text-gray-400 uppercase tracking-widest mb-3">Product Details</h4>
-              <p className="text-gray-600 leading-relaxed text-sm mb-4">{product.description}</p>
-
-              {product.features && (
-                <div className="mt-4">
-                  <h5 className="text-[10px] font-bold text-gray-800 uppercase tracking-widest mb-2">Tactical Specifications</h5>
-                  <ul className="space-y-2">
-                    {product.features.map((feature, idx) => (
-                      <li key={idx} className="flex gap-2 text-xs text-gray-600 leading-tight">
-                        <span className="text-brand-600">•</span>
-                        <span>{feature}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              )}
-            </div>
-
-            <div className="space-y-4 border-t border-gray-100 pt-6">
-              {Object.entries(product.specs).map(([key, value]) => (
-                <div key={key} className="flex justify-between text-sm items-center">
-                  <span className="text-gray-400 uppercase text-[10px] font-bold tracking-wider">{key.replace(/([A-Z])/g, ' $1').trim()}</span>
-                  <span className="font-medium text-gray-900">{value}</span>
-                </div>
-              ))}
-            </div>
-          </div>
-
-          <div className="mt-8 pt-6 border-t border-gray-100">
-            <button
-              onClick={handleAdd}
-              className={`w-full py-4 rounded-xl font-bold transition-all shadow-lg active:scale-95 duration-200 ${isAdded ? 'bg-green-600 text-white shadow-green-900/10' : 'bg-brand-900 text-white hover:bg-brand-800 shadow-brand-900/10'
-                }`}
-            >
-              {isAdded ? 'Added to Cart!' : 'Add to Cart'}
-            </button>
-          </div>
-        </div>
-      </div>
-    </div>
-  );
-};
-
 const ProductCard: React.FC<{
   product: Product;
-  onOpen: (p: Product) => void;
   onAddToCart: (p: Product) => void;
-}> = ({ product, onOpen, onAddToCart }) => {
+}> = ({ product, onAddToCart }) => {
   const [showSpecs, setShowSpecs] = useState(false);
   const [isAdded, setIsAdded] = useState(false);
+  const navigate = useNavigate();
 
   const handleAddToCart = (e: React.MouseEvent) => {
     e.stopPropagation();
@@ -226,8 +102,8 @@ const ProductCard: React.FC<{
   return (
     <div className="group bg-white rounded-2xl shadow-airy hover:shadow-float transition-all duration-500 overflow-hidden border border-white hover:border-gray-100 flex flex-col h-full">
       <div
-        className="relative aspect-square md:aspect-[16/10] bg-gray-50 overflow-hidden cursor-zoom-in p-4 sm:p-6"
-        onClick={() => onOpen(product)}
+        className="relative aspect-square md:aspect-[16/10] bg-gray-50 overflow-hidden cursor-pointer p-4 sm:p-6"
+        onClick={() => navigate(`/product/${product.id}`)}
       >
         <img
           src={product.images[0]}
@@ -239,7 +115,7 @@ const ProductCard: React.FC<{
         <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none">
           <div className="bg-white/95 backdrop-blur shadow-lg px-4 py-2 rounded-full flex items-center gap-2 text-xs font-bold text-gray-900 transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
             <ZoomIn size={14} />
-            Quick View
+            View Details
           </div>
         </div>
 
@@ -293,9 +169,7 @@ const ProductCard: React.FC<{
   );
 };
 
-export const ProductShowcase: React.FC<{ onAddToCart: () => void }> = ({ onAddToCart }) => {
-  const [selectedProduct, setSelectedProduct] = useState<Product | null>(null);
-
+export const ProductShowcase: React.FC<{ onAddToCart: (p: Product) => void }> = ({ onAddToCart }) => {
   return (
     <section id="products" className="py-24 bg-white relative">
       <div className="container mx-auto px-6">
@@ -313,19 +187,11 @@ export const ProductShowcase: React.FC<{ onAddToCart: () => void }> = ({ onAddTo
             <ProductCard
               key={p.id}
               product={p}
-              onOpen={setSelectedProduct}
               onAddToCart={onAddToCart}
             />
           ))}
         </div>
       </div>
-
-      {/* Product Modal Portal */}
-      <ProductModal
-        product={selectedProduct}
-        onClose={() => setSelectedProduct(null)}
-        onAddToCart={onAddToCart}
-      />
     </section>
   );
 };
