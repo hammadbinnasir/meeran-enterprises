@@ -32,8 +32,8 @@ export const Logistics: React.FC = () => {
             <h3 className="text-3xl font-bold text-gray-900">Real-Time Shipping Estimates</h3>
           </div>
           <div className="flex items-center gap-12">
-            <div className="hidden lg:block text-sm text-gray-500 max-w-xs">
-              Direct from our automated distribution centers in Nevada, Rotterdam, and Singapore.
+            <div className="hidden lg:block text-sm text-gray-500 max-w-xs text-right">
+              Direct from our main manufacturing and logistics hub in Sialkot, Pakistan.
             </div>
             <div className="flex gap-2">
               <button
