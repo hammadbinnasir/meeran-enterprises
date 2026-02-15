@@ -18,7 +18,7 @@ const technologies = [
     },
     {
         icon: <Zap className="w-8 h-8 text-brand-500" />,
-        title: "Impact Dispersion™",
+        title: "Impact Dispersion",
         description: "Advanced 10mm closed-cell foam matrix that absorbs and redirects kinetic energy away from critical strike points.",
         accent: "bg-amber-500/10",
         border: "border-amber-500/20"
