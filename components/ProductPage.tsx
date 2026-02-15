@@ -244,8 +244,8 @@ export const ProductPage: React.FC<{ onAddToCart: (p: Product) => void }> = ({ o
                             <button
                                 onClick={handleAdd}
                                 className={`w-full py-5 rounded-2xl font-bold text-lg transition-all shadow-2xl active:scale-[0.98] duration-300 flex items-center justify-center gap-3 ${isAdded
-                                        ? 'bg-green-600 text-white shadow-green-900/20'
-                                        : 'bg-brand-900 text-white hover:bg-black shadow-brand-900/30'
+                                    ? 'bg-green-600 text-white shadow-green-900/20'
+                                    : 'bg-brand-900 text-white hover:bg-black shadow-brand-900/30'
                                     }`}
                             >
                                 {isAdded ? (
@@ -257,9 +257,6 @@ export const ProductPage: React.FC<{ onAddToCart: (p: Product) => void }> = ({ o
                                     </>
                                 )}
                             </button>
-                            <p className="text-center text-[10px] text-gray-400 mt-4 uppercase tracking-widest font-medium">
-                                Free Express Shipping on Orders Over $150
-                            </p>
                         </div>
                     </div>
                 </div>
