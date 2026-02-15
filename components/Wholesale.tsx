@@ -16,7 +16,7 @@ export const Wholesale: React.FC = () => {
         'service_ua0ajq1',
         'template_62vacwq',
         quickInquiryForm.current,
-        'YmXw6pC7C6bC7B6z9' // Note: This is a placeholder public key. The user should provide their own or I can ask.
+        '4jGeVesKp7OBWE3Sr'
       )
         .then(() => {
           setSubmitStatus('success');
