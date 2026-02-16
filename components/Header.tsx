@@ -253,6 +253,9 @@ export const Header: React.FC<{
     { label: 'Wholesale', href: isHome ? '#wholesale' : '/#wholesale' },
   ];
 
+  const useWhiteText = isHome && !isScrolled && !isMobileMenuOpen;
+
+
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 20);
@@ -290,19 +293,22 @@ export const Header: React.FC<{
     >
       <div className="container mx-auto px-6 flex items-center justify-between">
         <Link to="/" onClick={() => isHome && window.scrollTo({ top: 0, behavior: 'smooth' })} className="z-50 relative hover:opacity-80 transition-opacity">
-          <Logo className="h-9" />
+          <Logo className="h-9" variant={isHome && !isScrolled && !isMobileMenuOpen ? 'light' : 'dark'} />
         </Link>
 
         <nav className="hidden md:flex items-center gap-8 text-sm font-medium">
           {navLinks.map((link) => {
             const isActive = activeSection === link.href.split('#')[1];
+            const baseTextColor = isHome && !isScrolled ? 'text-white/90 hover:text-white' : 'text-gray-600 hover:text-brand-600';
+            const activeTextColor = isHome && !isScrolled ? 'text-white font-bold' : 'text-brand-600 font-bold';
+
             return isHome ? (
-              <a key={link.label} href={link.href} className={`transition-colors relative py-1 ${isActive ? 'text-brand-600 font-bold' : 'text-gray-600 hover:text-brand-600'}`}>
+              <a key={link.label} href={link.href} className={`transition-colors relative py-1 ${isActive ? activeTextColor : baseTextColor}`}>
                 {link.label}
-                {isActive && <span className="absolute bottom-0 left-0 w-full h-1 bg-brand-600 rounded-full animate-fade-in"></span>}
+                {isActive && <span className={`absolute bottom-0 left-0 w-full h-1 rounded-full animate-fade-in ${isHome && !isScrolled ? 'bg-white' : 'bg-brand-600'}`}></span>}
               </a>
             ) : (
-              <Link key={link.label} to={link.href} className="transition-colors text-gray-600 hover:text-brand-600 py-1">
+              <Link key={link.label} to={link.href} className={`transition-colors py-1 ${baseTextColor}`}>
                 {link.label}
               </Link>
             );
@@ -310,17 +316,18 @@ export const Header: React.FC<{
         </nav>
 
         <div className="hidden md:flex items-center gap-4">
-          <button onClick={() => setIsSearchOpen(true)} className="p-2 text-gray-500 hover:text-brand-600 transition-colors"><Search size={20} /></button>
-          <button onClick={() => setIsTrackModalOpen(true)} className="flex items-center gap-2 px-4 py-2 rounded-full border border-gray-200 bg-white/50 hover:bg-white hover:shadow-md transition-all text-xs font-semibold text-brand-900">Track Order</button>
-          <button onClick={() => setIsCartOpen(true)} className="relative p-2 text-gray-800 hover:text-brand-600 transition-colors">
+          <button onClick={() => setIsSearchOpen(true)} className={`p-2 transition-colors ${isHome && !isScrolled ? 'text-white/90 hover:text-white' : 'text-gray-500 hover:text-brand-600'}`}><Search size={20} /></button>
+          <button onClick={() => setIsTrackModalOpen(true)} className={`flex items-center gap-2 px-4 py-2 rounded-full border transition-all text-xs font-semibold ${isHome && !isScrolled ? 'border-white/30 bg-white/10 text-white hover:bg-white/20' : 'border-gray-200 bg-white/50 text-brand-900 hover:bg-white hover:shadow-md'}`}>Track Order</button>
+          <button onClick={() => setIsCartOpen(true)} className={`relative p-2 transition-colors ${isHome && !isScrolled ? 'text-white/90 hover:text-white' : 'text-gray-800 hover:text-brand-600'}`}>
             <ShoppingBag size={20} />
             {cartItems.length > 0 && <span className="absolute top-0 right-0 w-4 h-4 bg-brand-500 text-white text-[10px] font-bold rounded-full flex items-center justify-center animate-zoom-in">{cartItems.length}</span>}
           </button>
         </div>
 
-        <button className="md:hidden p-2 text-gray-800 z-50 relative" onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}>
+        <button className={`md:hidden p-2 z-50 relative ${isHome && !isScrolled && !isMobileMenuOpen ? 'text-white' : 'text-gray-800'}`} onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}>
           {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
         </button>
+
 
         {isMobileMenuOpen && (
           <div className="fixed inset-0 bg-white z-40 flex flex-col pt-24 px-6 md:hidden animate-slide-down overflow-y-auto">

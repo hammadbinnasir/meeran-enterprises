@@ -71,7 +71,7 @@ export const Logo: React.FC<LogoProps> = ({ className = "h-8", variant = 'dark',
                     <span className={`text-xl font-black tracking-tighter uppercase ${variant === 'dark' ? 'text-brand-900' : 'text-white'}`}>
                         Meeran
                     </span>
-                    <span className={`text-[10px] font-bold tracking-[0.3em] uppercase opacity-50 ${variant === 'dark' ? 'text-brand-900' : 'text-white'}`}>
+                    <span className={`text-[10px] font-bold tracking-[0.3em] uppercase opacity-90 ${variant === 'dark' ? 'text-brand-900' : 'text-white'}`}>
                         Enterprises
                     </span>
                 </div>
