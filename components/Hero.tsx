@@ -85,7 +85,7 @@ export const Hero: React.FC = () => {
           </div>
 
           {/* Secondary Floating Image */}
-          <div className="absolute -bottom-8 -right-8 z-20 w-48 h-48 bg-white rounded-2xl shadow-[0_24px_48px_-12px_rgba(0,0,0,0.25)] p-2 overflow-hidden hover:scale-105 transition-transform duration-500">
+          <div className="absolute -bottom-8 -left-8 z-20 w-48 h-48 bg-white rounded-2xl shadow-[0_24px_48px_-12px_rgba(0,0,0,0.25)] p-2 overflow-hidden hover:scale-105 transition-transform duration-500">
             <img
               src="/assets/images/hero_secondary.png"
               alt="Product Detail"
