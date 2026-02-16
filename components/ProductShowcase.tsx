@@ -5,6 +5,32 @@ import { Product } from '../types';
 
 const products: Product[] = [
   {
+    id: 'p-lnp-new',
+    name: 'LNP-700 Extended Tactical Knee & Shin System',
+    description: 'Engineered for maximum leg coverage, the LNP-700 provides seamless knee-to-shin protection without compromising mobility. Featuring an articulated dual-pivot system and high-density polymer plating, it ensures superior impact resistance against blunt force trauma and debris. The quick-release buckle system allows for rapid deployment in critical situations.',
+    images: [
+      '/assets/images/LNP_1.jpg',
+      '/assets/images/LNP_2.jpg',
+      '/assets/images/LNP_3.jpg',
+      '/assets/images/LNP_4.jpg',
+      '/assets/images/LNP_5.jpg',
+      '/assets/images/LNP_6.jpg',
+      '/assets/images/LNP_7.jpg'
+    ],
+    features: [
+      'Articulated knee joint for unrestricted movement',
+      'Full shin guard integration for extended coverage',
+      'Quick-release buckle system for rapid don/doff',
+      'Ventilated high-impact shell for breathability',
+      'Moisture-wicking interior lining',
+      'Anti-slip silicone grip lining',
+      'Reinforced stitching at stress points',
+      'Compatible with tactical pants and uniforms',
+      'Model: LNP-700 / Series-X'
+    ],
+    specs: { material: 'Impact Polymer / 1000D Nylon', weight: '320g', certification: 'EN1621-1:2012', impactRating: 'Level 2' }
+  },
+  {
     id: 'p1',
     name: 'Hard Shell Tactical Knee Pads',
     description: 'Experience top-tier comfort and performance with the Tactical Pro DKP Knee Pads. Designed to give full range of motion in extreme tactical situations. Molded with non-slip, flexible thermoplastic polyurethane (TPU) plates, these knee pads deflect blows from flying debris and provide protection on hard surfaces. Made with high tenacity, air-textured professional-grade synthetic materials, these knee pads offer superior tear and abrasion resistance. They feature dual hook and loop straps with an ergonomic curved form and composed of closed cell foam that ensures excellent cushioning and shock protection. These knee pads are assured not to absorb and hold water.',
