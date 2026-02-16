@@ -60,8 +60,8 @@ export const Hero: React.FC = () => {
         <div className="flex-1 w-full relative">
           <div className="relative z-10 w-full max-w-lg mx-auto aspect-[3/4] bg-gray-900 rounded-3xl shadow-[0_32px_64px_-16px_rgba(0,0,0,0.3)] p-1 overflow-hidden group">
             <img
-              src="/assets/images/hero_tactical.jpg"
-              alt="Meeran Tactical Operator"
+              src="/assets/images/global_shipping_hero.png"
+              alt="Global Shipping - Worldwide Protection Delivery"
               className="w-full h-full object-cover rounded-[22px] contrast-[1.1] group-hover:scale-105 transition-transform duration-1000"
             />
 
@@ -82,6 +82,15 @@ export const Hero: React.FC = () => {
                 </div>
               </div>
             </div>
+          </div>
+
+          {/* Secondary Floating Image */}
+          <div className="absolute -bottom-8 -right-8 z-20 w-48 h-48 bg-white rounded-2xl shadow-[0_24px_48px_-12px_rgba(0,0,0,0.25)] p-2 overflow-hidden hover:scale-105 transition-transform duration-500">
+            <img
+              src="/assets/images/hero_secondary.png"
+              alt="Product Detail"
+              className="w-full h-full object-cover rounded-xl"
+            />
           </div>
 
           {/* Decorative background circle behind image */}
