@@ -15,9 +15,9 @@ export const Hero: React.FC = () => {
         <div className="absolute inset-0 bg-gradient-to-r from-gray-950/95 via-gray-900/80 to-gray-900/40"></div>
       </div>
 
-      <div className="container mx-auto px-6 relative z-20 grid grid-cols-1 md:grid-cols-2 gap-12 items-start md:items-center h-full">
+      <div className="container mx-auto px-6 relative z-20 grid grid-cols-1 md:grid-cols-2 gap-12 items-start h-full">
         {/* Text Content - Left Aligned for readability over complex backgrounds */}
-        <div className="text-left space-y-6 md:space-y-8 max-w-2xl animate-fade-in pt-32 md:pt-0">
+        <div className="text-left space-y-6 md:space-y-8 max-w-2xl animate-fade-in pt-32 md:pt-48">
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/10 border border-white/20 backdrop-blur-md text-xs font-semibold tracking-wide text-brand-300 uppercase mb-2 md:mb-4 shadow-lg">
             <span className="w-2 h-2 rounded-full bg-green-500 animate-pulse"></span>
             Global Shipping Active
