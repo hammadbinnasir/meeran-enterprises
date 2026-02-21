@@ -2,113 +2,7 @@ import React, { useState } from 'react';
 import { Plus, Minus, ZoomIn } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 import { Product } from '../types';
-
-const products: Product[] = [
-  {
-    id: 'p-lnp-new',
-    name: 'LNP-700 Extended Tactical Knee & Shin System',
-    description: 'Engineered for maximum leg coverage, the LNP-700 provides seamless knee-to-shin protection without compromising mobility. Featuring an articulated dual-pivot system and high-density polymer plating, it ensures superior impact resistance against blunt force trauma and debris. The quick-release buckle system allows for rapid deployment in critical situations.',
-    images: [
-      '/assets/images/LNP_1.jpg',
-      '/assets/images/LNP_2.jpg',
-      '/assets/images/LNP_3.jpg',
-      '/assets/images/LNP_4.jpg',
-      '/assets/images/LNP_5.jpg',
-      '/assets/images/LNP_6.jpg',
-      '/assets/images/LNP_7.jpg'
-    ],
-    features: [
-      'Articulated knee joint for unrestricted movement',
-      'Full shin guard integration for extended coverage',
-      'Quick-release buckle system for rapid don/doff',
-      'Ventilated high-impact shell for breathability',
-      'Moisture-wicking interior lining',
-      'Anti-slip silicone grip lining',
-      'Reinforced stitching at stress points',
-      'Compatible with tactical pants and uniforms',
-      'Model: LNP-700 / Series-X'
-    ],
-    specs: { material: 'Impact Polymer / 1000D Nylon', weight: '320g', certification: 'EN1621-1:2012', impactRating: 'Level 2' }
-  },
-  {
-    id: 'p1',
-    name: 'Hard Shell Tactical Knee Pads',
-    description: 'Experience top-tier comfort and performance with the Tactical Pro DKP Knee Pads. Designed to give full range of motion in extreme tactical situations. Molded with non-slip, flexible thermoplastic polyurethane (TPU) plates, these knee pads deflect blows from flying debris and provide protection on hard surfaces. Made with high tenacity, air-textured professional-grade synthetic materials, these knee pads offer superior tear and abrasion resistance. They feature dual hook and loop straps with an ergonomic curved form and composed of closed cell foam that ensures excellent cushioning and shock protection. These knee pads are assured not to absorb and hold water.',
-    images: ['/assets/images/elite_pro_guard_v3.avif'],
-    features: [
-      'Hard shell polyurethane thermoplastic non-slip caps for added durability',
-      'Reinforced foam padding for optimal shock absorption and comfort',
-      'Two adjustable elastic straps with Velcro and D-rings for secure and custom fit',
-      'High tenacity, air-textured professional synthetic outer materials for superior abrasion and tear resistance',
-      'Non-reflective tone-on-tone grommets with a dull finish for a sleek look',
-      'Ergonomically curved form for enhanced comfort',
-      'Interior name tags for personal identification',
-      'Easily washable for maintenance',
-      'One size fits all for convenience',
-      'Sold as a pair',
-      'Mfg# DKP-B'
-    ],
-    specs: { material: 'Carbon Fiber Hybrid', weight: '180g', certification: 'ISO 9001', impactRating: 'Level 2' }
-  },
-  {
-    id: 'p2',
-    name: 'Defender Riot Control Gloves',
-    description: 'Expertly engineered for high-risk operations such as civil disturbances and high-threat level situations. These gloves feature molded hard-shell carbon-composite on the knuckles and panels to effectively deflect blows and flying debris. Integrated foam-injected padding provides superior shock protection for the knuckles and wrist while maintaining ergonomic flexibility.',
-    images: ['/assets/images/control_gloves_1.avif', '/assets/images/control_gloves_2.avif'],
-    features: [
-      'Molded hard-shell carbon-composite knuckles for maximum impact deflection',
-      'Foam-injected padding for enhanced knuckle and wrist protection',
-      'Durable leather shell with reinforced palms for superior longevity',
-      'Double-reinforced stitching in high-stress areas',
-      'Elasticized wrist with Velcro® closure for a secure, customized fit',
-      'Inner lining of bonded breathable tricot for moisture management',
-      'Designed specifically for riot control and high-risk inmate movement',
-      'Model: Defender Series'
-    ],
-    specs: { material: 'Leather / Carbon-Composite', weight: '150g', certification: 'CE EN1621', impactRating: 'Level 1' }
-  },
-  {
-    id: 'p3',
-    name: 'DNSG Pro Shin Guard',
-    description: 'The DNSG Tactical Shin Guards provide stealthy, professional-grade protection for law enforcement and tactical teams. Constructed with a durable neoprene outer shell and reinforced stitching, these guards are designed to be silent, form-fitting, and exceptionally impact-resistant. They feature Grip-Tech™ non-slip technology for maximum durability and grip during high-intensity operations.',
-    images: ['/assets/images/knee_pads_protector.jpg'],
-    features: [
-      'Stealthy durable neoprene outer shell with reinforced stitching',
-      'Shock-absorbing 10mm closed-cell foam for silent operation',
-      'Grip-Tech™ Non-slip reinforced grip technology on key impact zones',
-      'Additional exterior padded protection in the shin section to deflect debris',
-      'Multiple adjustable elastic straps and Velcro® closures for a secure fit',
-      'Can be worn comfortably inside or outside of gear',
-      'Ergonomic design for full range of motion',
-      'Model: DNSG-B'
-    ],
-    specs: { material: 'Neoprene / TPU', weight: '240g', certification: 'ANSI/ISEA', impactRating: 'Level 3' }
-  },
-  {
-    id: 'p4',
-    name: 'Shell Knee Pads',
-    description: 'Professional-grade protection for high-intensity operations. These shell knee pads are engineered for maximum durability and comfort in all-terrain environments. Featuring a rugged high-impact shell and non-slip surfaces, they provide reliable safety for tactical personnel and law enforcement.',
-    images: [
-      '/assets/images/short-kneepad_1.jpg',
-      '/assets/images/short-kneepad_2.jpg',
-      '/assets/images/short-kneepad_3.jpg',
-      '/assets/images/short-kneepad_4.jpg',
-      '/assets/images/short-kneepad_5.jpg',
-      '/assets/images/short-kneepad_6.jpg'
-    ],
-    features: [
-      'High-impact resistant outer shell for maximum tactical protection',
-      'Dual-strap system with secure hook-and-loop closures',
-      'Ergonomic foam padding for extended wear comfort',
-      'Non-slip grip surface for stability on various terrains',
-      'Lightweight and breathable design',
-      'Stealth black professional finish',
-      'Reinforced stitching for extreme durability',
-      'Model: SKP-95 / Pro-Shell'
-    ],
-    specs: { material: 'Polymer / Nylon', weight: '220g', certification: 'CE Level 1', impactRating: 'Tactical Grade' }
-  }
-];
+import { products } from '../data/products';
 
 const ProductCard: React.FC<{
   product: Product;
@@ -134,7 +28,7 @@ const ProductCard: React.FC<{
         <img
           src={product.images[0]}
           alt={product.name}
-          className="w-full h-full object-contain group-hover:scale-105 transition-transform duration-700 ease-out drop-shadow-md"
+          className="w-full h-full object-contain group-hover:scale-105 transition-transform duration-700 ease-out drop-shadow-md high-quality-img"
         />
 
         {/* Quick View Overlay Badge */}

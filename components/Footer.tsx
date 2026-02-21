@@ -12,6 +12,13 @@ export const Footer: React.FC = () => {
             <p className="text-sm text-gray-500">
               Redefining athletic safety through material science and ergonomic design.
             </p>
+            <div className="pt-4 space-y-2">
+              <p className="text-[10px] font-bold uppercase tracking-widest text-gray-400">Head Office</p>
+              <address className="not-italic text-xs text-gray-500 leading-relaxed">
+                Office no 29, 2nd floor, Bhutta Centre,<br />
+                Main GT Road, Gujranwala
+              </address>
+            </div>
           </div>
 
           <div>

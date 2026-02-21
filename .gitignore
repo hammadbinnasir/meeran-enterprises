@@ -22,3 +22,11 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# Large assets and temporary folders
+16 Model Pics along Specs.rar
+16 Model Pics along Specs/
+pdftoimage (1).zip
+pdftoimage (1)/
+raza meeran.pdf
+public/assets/images/products/

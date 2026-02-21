@@ -17,8 +17,8 @@ import { ProductPage } from './components/ProductPage';
 const HomePage: React.FC<{ addToCart: (p: Product) => void }> = ({ addToCart }) => (
   <main>
     <Hero />
-    <Technology />
     <ProductShowcase onAddToCart={addToCart} />
+    <Technology />
     <Location />
     <Logistics />
     <Wholesale />
