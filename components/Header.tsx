@@ -197,7 +197,7 @@ const CartDrawer: React.FC<{ isOpen: boolean; onClose: () => void; items: any[];
             items.map((item, idx) => (
               <div key={`${item.id}-${idx}`} className="flex gap-4 animate-fade-in group">
                 <div className="w-20 h-20 bg-gray-50 rounded-xl flex-shrink-0 p-2">
-                  <img src={item.image} alt={item.name} className="w-full h-full object-contain" />
+                  <img src={item.images[0]} alt={item.name} className="w-full h-full object-contain" />
                 </div>
                 <div className="flex-grow">
                   <div className="flex justify-between items-start">
