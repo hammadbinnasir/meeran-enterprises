@@ -1,7 +1,13 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { MapPin, Clock, Phone, Mail, ExternalLink, Factory, Building2 } from 'lucide-react';
 
 export const Location: React.FC = () => {
+    const headOfficeMap = "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3388.93282431683!2d74.19561081514781!3d32.1610449811634!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x391f299105edb0e9%3A0xe67db5d9c240974b!2sBhutta%20Centre!5e0!3m2!1sen!2s!4v1707755000000!5m2!1sen!2s";
+    const warehouseMap = "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d14333.123456789!2d74.190123!3d32.155678!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x391f29ec58599143%3A0xc343468087913340!2sGill%20Road%2C%20Gujranwala!5e0!3m2!1sen!2s!4v1707755000000!5m2!1sen!2s";
+
+    const [activeMap, setActiveMap] = useState(headOfficeMap);
+    const [activeHub, setActiveHub] = useState<'office' | 'warehouse'>('office');
+
     return (
         <section id="location" className="py-24 bg-white relative">
             <div className="container mx-auto px-6">
@@ -16,10 +22,13 @@ export const Location: React.FC = () => {
                         </p>
 
                         <div className="space-y-10">
-                            {/* Head Office */}
-                            <div className="group">
+                            <div
+                                className={`group cursor-pointer p-4 rounded-3xl transition-all duration-300 border-2 ${activeHub === 'office' ? 'border-brand-600 bg-brand-50/50' : 'border-transparent hover:bg-gray-50'}`}
+                                onClick={() => { setActiveMap(headOfficeMap); setActiveHub('office'); }}
+                                onMouseEnter={() => { setActiveMap(headOfficeMap); setActiveHub('office'); }}
+                            >
                                 <div className="flex items-start gap-5">
-                                    <div className="p-4 bg-brand-50 rounded-2xl text-brand-600 group-hover:bg-brand-600 group-hover:text-white transition-all duration-300">
+                                    <div className={`p-4 rounded-2xl transition-all duration-300 ${activeHub === 'office' ? 'bg-brand-600 text-white' : 'bg-brand-50 text-brand-600'}`}>
                                         <Building2 size={24} />
                                     </div>
                                     <div>
@@ -33,9 +42,13 @@ export const Location: React.FC = () => {
                             </div>
 
                             {/* Manufacturing & Warehouse */}
-                            <div className="group">
+                            <div
+                                className={`group cursor-pointer p-4 rounded-3xl transition-all duration-300 border-2 ${activeHub === 'warehouse' ? 'border-brand-600 bg-brand-50/50' : 'border-transparent hover:bg-gray-50'}`}
+                                onClick={() => { setActiveMap(warehouseMap); setActiveHub('warehouse'); }}
+                                onMouseEnter={() => { setActiveMap(warehouseMap); setActiveHub('warehouse'); }}
+                            >
                                 <div className="flex items-start gap-5">
-                                    <div className="p-4 bg-brand-50 rounded-2xl text-brand-600 group-hover:bg-brand-600 group-hover:text-white transition-all duration-300">
+                                    <div className={`p-4 rounded-2xl transition-all duration-300 ${activeHub === 'warehouse' ? 'bg-brand-600 text-white' : 'bg-brand-50 text-brand-600'}`}>
                                         <Factory size={24} />
                                     </div>
                                     <div>
@@ -73,10 +86,10 @@ export const Location: React.FC = () => {
                         </div>
 
                         <button
-                            onClick={() => window.open('https://maps.google.com/?q=Gujranwala+GT+Road', '_blank')}
+                            onClick={() => window.open(activeHub === 'office' ? 'https://maps.google.com/?q=Bhutta+Centre+Gujranwala' : 'https://maps.google.com/?q=Gill+Road+Gujranwala', '_blank')}
                             className="mt-12 inline-flex items-center gap-2 px-8 py-4 bg-gray-900 text-white rounded-2xl font-bold hover:bg-brand-600 transition-all group"
                         >
-                            Open in Google Maps
+                            View on Google Maps
                             <ExternalLink size={18} className="group-hover:translate-x-1 transition-transform" />
                         </button>
                     </div>
@@ -84,7 +97,7 @@ export const Location: React.FC = () => {
                     {/* Map Side */}
                     <div className="w-full lg:w-3/5 h-[500px] lg:h-[650px] relative rounded-[2.5rem] overflow-hidden shadow-2xl shadow-brand-900/10 border-8 border-white group">
                         <iframe
-                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d108424.364434938!2d74.12879590897669!3d32.18769150047394!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x391f29ec58599143%3A0xc343468087913340!2sGujranwala%2C%20Punjab%2C%20Pakistan!5e0!3m2!1sen!2s!4v1707755000000!5m2!1sen!2s"
+                            src={activeMap}
                             width="100%"
                             height="100%"
                             style={{ border: 0, filter: 'grayscale(0.1) contrast(1.1)' }}
@@ -92,6 +105,7 @@ export const Location: React.FC = () => {
                             loading="lazy"
                             referrerPolicy="no-referrer-when-downgrade"
                             className="absolute inset-0 grayscale-[10%] group-hover:grayscale-0 transition-all duration-700"
+                            key={activeMap} // Force reload on source change
                         />
                     </div>
                 </div>
