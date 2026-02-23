@@ -51,9 +51,9 @@ export const products: Product[] = [
         name: 'Junior Pro Safety System',
         description: 'Multi-sport protective gear tailored for young athletes. Ultra-breathable mesh lining combined with shock-absorbent HDP caps ensures safety for cycling, skating, and scooter riding. Lightweight and designed to allow natural movement while providing maximum protection.',
         images: [
+            '/products/p2_3.jpg',
             '/products/p2_1.jpg',
             '/products/p2_2.jpg',
-            '/products/p2_3.jpg',
             '/products/p2_4.jpg'
         ],
         features: [
