@@ -113,71 +113,78 @@ const CheckoutModal: React.FC<{
   };
 
   return (
-    <div className="fixed inset-0 z-[130] flex items-center justify-center p-4">
-      <div className="absolute inset-0 bg-brand-900/40 backdrop-blur-md animate-fade-in" onClick={step === 'form' ? onClose : undefined} />
-      <div className="relative w-full max-w-lg bg-white rounded-3xl shadow-2xl overflow-y-auto animate-zoom-in max-h-[90dvh]">
-        {step === 'form' && (
-          <div className="p-8 md:p-12">
-            <button onClick={onClose} className="absolute top-6 right-6 text-gray-400 hover:text-gray-900"><X size={20} /></button>
-            <div className="mb-8">
-              <h3 className="text-2xl font-bold text-gray-900">Finalize Order</h3>
-              <p className="text-gray-500 text-sm mt-1">Shipping from Global Logistics Hub</p>
-            </div>
+    <div className="fixed inset-0 z-[130] overflow-y-auto overflow-x-hidden">
+      <div className="flex min-h-full items-center justify-center p-4">
+        {/* Backdrop */}
+        <div
+          className="fixed inset-0 bg-brand-900/40 backdrop-blur-md animate-fade-in"
+          onClick={step === 'form' ? onClose : undefined}
+        />
 
-            <form onSubmit={handleSubmit} className="space-y-4">
-              <div className="space-y-1">
-                <label className="text-[10px] font-bold uppercase tracking-widest text-gray-400 ml-1">Full Name</label>
-                <input required type="text" value={formData.name} onChange={e => setFormData({ ...formData, name: e.target.value })} className="w-full px-4 py-3 rounded-xl border border-gray-100 bg-gray-50 focus:outline-none focus:border-brand-600 transition-colors" placeholder="John Doe" />
-              </div>
-              <div className="space-y-1">
-                <label className="text-[10px] font-bold uppercase tracking-widest text-gray-400 ml-1">Email Address</label>
-                <input required type="email" value={formData.email} onChange={e => setFormData({ ...formData, email: e.target.value })} className="w-full px-4 py-3 rounded-xl border border-gray-100 bg-gray-50 focus:outline-none focus:border-brand-600 transition-colors" placeholder="john@example.com" />
-              </div>
-              <div className="space-y-1">
-                <label className="text-[10px] font-bold uppercase tracking-widest text-gray-400 ml-1">Shipping Address</label>
-                <textarea required value={formData.address} onChange={e => setFormData({ ...formData, address: e.target.value })} className="w-full px-4 py-3 rounded-xl border border-gray-100 bg-gray-50 focus:outline-none focus:border-brand-600 transition-colors h-24 resize-none" placeholder="Enter Full Shipping Address (Street, City, Country)" />
+        {/* Modal Container */}
+        <div className="relative w-full max-w-lg bg-white rounded-3xl shadow-2xl animate-zoom-in my-8">
+          {step === 'form' && (
+            <div className="p-8 md:p-12">
+              <button onClick={onClose} className="absolute top-6 right-6 text-gray-400 hover:text-gray-900"><X size={20} /></button>
+              <div className="mb-8">
+                <h3 className="text-2xl font-bold text-gray-900">Finalize Order</h3>
+                <p className="text-gray-500 text-sm mt-1">Shipping from Global Logistics Hub</p>
               </div>
 
-              <div className="pt-6 border-t border-gray-50 mt-8">
-                <div className="flex justify-between items-center mb-6">
-                  <span className="text-gray-500 font-medium">Order items</span>
-                  <span className="text-xl font-bold text-brand-900">{items.length} units</span>
+              <form onSubmit={handleSubmit} className="space-y-4">
+                <div className="space-y-1">
+                  <label className="text-[10px] font-bold uppercase tracking-widest text-gray-400 ml-1">Full Name</label>
+                  <input required type="text" value={formData.name} onChange={e => setFormData({ ...formData, name: e.target.value })} className="w-full px-4 py-3 rounded-xl border border-gray-100 bg-gray-50 focus:outline-none focus:border-brand-600 transition-colors" placeholder="John Doe" />
                 </div>
-                <button type="submit" className="w-full py-4 bg-brand-900 text-white rounded-xl font-bold shadow-xl shadow-brand-900/20 hover:bg-brand-800 transition-all active:scale-95">
-                  Confirm Quote Request
-                </button>
+                <div className="space-y-1">
+                  <label className="text-[10px] font-bold uppercase tracking-widest text-gray-400 ml-1">Email Address</label>
+                  <input required type="email" value={formData.email} onChange={e => setFormData({ ...formData, email: e.target.value })} className="w-full px-4 py-3 rounded-xl border border-gray-100 bg-gray-50 focus:outline-none focus:border-brand-600 transition-colors" placeholder="john@example.com" />
+                </div>
+                <div className="space-y-1">
+                  <label className="text-[10px] font-bold uppercase tracking-widest text-gray-400 ml-1">Shipping Address</label>
+                  <textarea required value={formData.address} onChange={e => setFormData({ ...formData, address: e.target.value })} className="w-full px-4 py-3 rounded-xl border border-gray-100 bg-gray-50 focus:outline-none focus:border-brand-600 transition-colors h-24 resize-none" placeholder="Enter Full Shipping Address (Street, City, Country)" />
+                </div>
+
+                <div className="pt-6 border-t border-gray-50 mt-8">
+                  <div className="flex justify-between items-center mb-6">
+                    <span className="text-gray-500 font-medium">Order items</span>
+                    <span className="text-xl font-bold text-brand-900">{items.length} units</span>
+                  </div>
+                  <button type="submit" className="w-full py-4 bg-brand-900 text-white rounded-xl font-bold shadow-xl shadow-brand-900/20 hover:bg-brand-800 transition-all active:scale-95">
+                    Confirm Quote Request
+                  </button>
+                </div>
+              </form>
+            </div>
+          )}
+
+          {step === 'processing' && (
+            <div className="p-20 text-center space-y-6 animate-pulse">
+              <div className="w-20 h-20 border-4 border-brand-100 border-t-brand-900 rounded-full animate-spin mx-auto" />
+              <h3 className="text-xl font-bold text-gray-900">Securing Transaction...</h3>
+              <p className="text-gray-500 text-sm">Our global payment gateway is verifying your details.</p>
+            </div>
+          )}
+
+          {step === 'success' && (
+            <div className="p-20 text-center">
+              <div className="w-20 h-20 bg-green-100 text-green-600 rounded-full flex items-center justify-center mx-auto mb-6 animate-bounce">
+                <ChevronRight size={40} className="rotate-[-90deg]" />
               </div>
-            </form>
-          </div>
-        )}
-
-        {step === 'processing' && (
-          <div className="p-20 text-center space-y-6 animate-pulse">
-            <div className="w-20 h-20 border-4 border-brand-100 border-t-brand-900 rounded-full animate-spin mx-auto" />
-            <h3 className="text-xl font-bold text-gray-900">Securing Transaction...</h3>
-            <p className="text-gray-500 text-sm">Our global payment gateway is verifying your details.</p>
-          </div>
-        )}
-
-        {step === 'success' && (
-          <div className="p-20 text-center">
-            <div className="w-20 h-20 bg-green-100 text-green-600 rounded-full flex items-center justify-center mx-auto mb-6 animate-bounce">
-              <ChevronRight size={40} className="rotate-[-90deg]" />
+              <h3 className="text-3xl font-bold text-gray-900 mb-2">Order Confirmed!</h3>
+              <p className="text-gray-500 mb-8">Thank you for choosing Raza Meeran Enterprises. Your tactical gear is being prepared for dispatch.</p>
+              <div className="inline-block px-4 py-2 bg-gray-50 rounded-full text-xs font-mono text-gray-400 uppercase tracking-widest">
+                Order ID: RME-{Math.random().toString(36).substr(2, 9).toUpperCase()}
+              </div>
             </div>
-            <h3 className="text-3xl font-bold text-gray-900 mb-2">Order Confirmed!</h3>
-            <p className="text-gray-500 mb-8">Thank you for choosing Raza Meeran Enterprises. Your tactical gear is being prepared for dispatch.</p>
-            <div className="inline-block px-4 py-2 bg-gray-50 rounded-full text-xs font-mono text-gray-400 uppercase tracking-widest">
-              Order ID: RME-{Math.random().toString(36).substr(2, 9).toUpperCase()}
-            </div>
-          </div>
-        )}
+          )}
+        </div>
       </div>
     </div>
   );
 };
 
 const CartDrawer: React.FC<{ isOpen: boolean; onClose: () => void; items: any[]; onRemove: (id: string) => void; onCheckout: () => void }> = ({ isOpen, onClose, items, onRemove, onCheckout }) => {
-
   return (
     <div className={`fixed inset-0 z-[120] ${isOpen ? 'pointer-events-auto' : 'pointer-events-none'}`}>
       <div className={`absolute inset-0 bg-black/40 backdrop-blur-sm transition-opacity duration-500 ${isOpen ? 'opacity-100' : 'opacity-0'}`} onClick={onClose} />
