@@ -220,74 +220,73 @@ export const products: Product[] = [
         ],
         specs: { material: 'Leather / Carbon-Composite', weight: '150g', certification: 'CE EN1621', impactRating: 'Level 1' }
     },
-    },
-{
-    id: 'p4',
+    {
+        id: 'p4',
         name: 'Shell Knee Pads',
-            description: 'Professional-grade protection for high-intensity operations. These shell knee pads are engineered for maximum durability and comfort in all-terrain environments. Featuring a rugged high-impact shell and non-slip surfaces, they provide reliable safety for tactical personnel and law enforcement.',
-                images: [
-                    '/assets/images/short-kneepad_1.jpg',
-                    '/assets/images/short-kneepad_2.jpg',
-                    '/assets/images/short-kneepad_3.jpg',
-                    '/assets/images/short-kneepad_4.jpg',
-                    '/assets/images/short-kneepad_5.jpg',
-                    '/assets/images/short-kneepad_6.jpg'
-                ],
-                    features: [
-                        'High-impact resistant outer shell for maximum tactical protection',
-                        'Dual-strap system with secure hook-and-loop closures',
-                        'Ergonomic foam padding for extended wear comfort',
-                        'Non-slip grip surface for stability on various terrains',
-                        'Lightweight and breathable design',
-                        'Stealth black professional finish',
-                        'Reinforced stitching for extreme durability',
-                        'Model: SKP-95 / Pro-Shell'
-                    ],
-                        specs: { material: 'Polymer / Nylon', weight: '220g', certification: 'CE Level 1', impactRating: 'Tactical Grade' }
-},
-{
-    id: 'p-flex-guard',
+        description: 'Professional-grade protection for high-intensity operations. These shell knee pads are engineered for maximum durability and comfort in all-terrain environments. Featuring a rugged high-impact shell and non-slip surfaces, they provide reliable safety for tactical personnel and law enforcement.',
+        images: [
+            '/assets/images/short-kneepad_1.jpg',
+            '/assets/images/short-kneepad_2.jpg',
+            '/assets/images/short-kneepad_3.jpg',
+            '/assets/images/short-kneepad_4.jpg',
+            '/assets/images/short-kneepad_5.jpg',
+            '/assets/images/short-kneepad_6.jpg'
+        ],
+        features: [
+            'High-impact resistant outer shell for maximum tactical protection',
+            'Dual-strap system with secure hook-and-loop closures',
+            'Ergonomic foam padding for extended wear comfort',
+            'Non-slip grip surface for stability on various terrains',
+            'Lightweight and breathable design',
+            'Stealth black professional finish',
+            'Reinforced stitching for extreme durability',
+            'Model: SKP-95 / Pro-Shell'
+        ],
+        specs: { material: 'Polymer / Nylon', weight: '220g', certification: 'CE Level 1', impactRating: 'Tactical Grade' }
+    },
+    {
+        id: 'p-flex-guard',
         name: 'Tri-Segment Flex Tactical Protector',
-            description: 'The Tri-Segment Flex Protector is the pinnacle of ergonomic impact management. Featuring a revolutionary three-point articulation system, it mimics the natural movement of the human knee for zero-latency mobility. Constructed with ultra-lightweight soft EVA core and high-impact polymer plating, it provides elite protection for high-speed transit and off-road activities.',
-                images: [
-                    '/products/p9_1.jpg',
-                    '/products/p9_2.jpg',
-                    '/products/p9_3.jpg',
-                    '/products/p9_4.jpg',
-                    '/products/p9_5.jpg',
-                    '/products/p9_6.jpg',
-                    '/products/p9_7.jpg',
-                    '/products/p9_8.jpg'
-                ],
-                    features: [
-                        'Tri-Segment articulated architecture for fluid motion',
-                        'Ergonomic flex-design matching limb geometry',
-                        'Dual-density soft EVA interior for pressure relief',
-                        'Advanced airflow channels for temperature regulation',
-                        'Quick-adjust security strap system'
-                    ],
-                        specs: { material: 'Soft EVA / High-Strength Polymer', weight: '280g', certification: 'EN1621-1 Level 1', impactRating: 'Pro-Flex Grade' }
-},
-{
-    id: 'p-vanguard-system',
+        description: 'The Tri-Segment Flex Protector is the pinnacle of ergonomic impact management. Featuring a revolutionary three-point articulation system, it mimics the natural movement of the human knee for zero-latency mobility. Constructed with ultra-lightweight soft EVA core and high-impact polymer plating, it provides elite protection for high-speed transit and off-road activities.',
+        images: [
+            '/products/p9_1.jpg',
+            '/products/p9_2.jpg',
+            '/products/p9_3.jpg',
+            '/products/p9_4.jpg',
+            '/products/p9_5.jpg',
+            '/products/p9_6.jpg',
+            '/products/p9_7.jpg',
+            '/products/p9_8.jpg'
+        ],
+        features: [
+            'Tri-Segment articulated architecture for fluid motion',
+            'Ergonomic flex-design matching limb geometry',
+            'Dual-density soft EVA interior for pressure relief',
+            'Advanced airflow channels for temperature regulation',
+            'Quick-adjust security strap system'
+        ],
+        specs: { material: 'Soft EVA / High-Strength Polymer', weight: '280g', certification: 'EN1621-1 Level 1', impactRating: 'Pro-Flex Grade' }
+    },
+    {
+        id: 'p-vanguard-system',
         name: 'Vanguard Road-Warrior Shin & Knee System',
-            description: 'Engineered for the modern road warrior, the Vanguard system provides comprehensive lower-leg protection for high-speed motorcycling and extreme off-road terrain. Featuring a reinforced dual-hinge design and extended shin coverage, it ensures stability and impact resistance without sacrificing the agility required for performance riding.',
-                images: [
-                    '/products/p10_1.jpg',
-                    '/products/p10_2.jpg',
-                    '/products/p10_3.jpg',
-                    '/products/p10_4.jpg',
-                    '/products/p10_5.jpg',
-                    '/products/p10_6.jpg',
-                    '/products/p10_7.jpg'
-                ],
-                    features: [
-                        'Full-length shin and knee integrated protection',
-                        'Dual-hinge pivot system for natural leg extension',
-                        'Hard-shell polymer plating with impact-absorption core',
-                        'Adjustable triple-strap security for a custom fit',
-                        'Breathable mesh lining for long-distance comfort'
-                    ],
-                        specs: { material: 'High-Impact Polymer / Soft Foam Core', weight: '420g', certification: 'CE EN1621-1', impactRating: 'Elite Road Grade' }
-}
+        description: 'Engineered for the modern road warrior, the Vanguard system provides comprehensive lower-leg protection for high-speed motorcycling and extreme off-road terrain. Featuring a reinforced dual-hinge design and extended shin coverage, it ensures stability and impact resistance without sacrificing the agility required for performance riding.',
+        images: [
+            '/products/p10_1.jpg',
+            '/products/p10_2.jpg',
+            '/products/p10_3.jpg',
+            '/products/p10_4.jpg',
+            '/products/p10_5.jpg',
+            '/products/p10_6.jpg',
+            '/products/p10_7.jpg'
+        ],
+        features: [
+            'Full-length shin and knee integrated protection',
+            'Dual-hinge pivot system for natural leg extension',
+            'Hard-shell polymer plating with impact-absorption core',
+            'Adjustable triple-strap security for a custom fit',
+            'Breathable mesh lining for long-distance comfort'
+        ],
+        specs: { material: 'High-Impact Polymer / Soft Foam Core', weight: '420g', certification: 'CE EN1621-1', impactRating: 'Elite Road Grade' }
+    }
 ];
