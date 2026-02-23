@@ -148,6 +148,7 @@ export const products: Product[] = [
         name: 'Motocross X-Treme Guards',
         description: 'Heavy-duty joint protection for off-road enthusiasts. Ballistic-grade impact zones and ventilated cooling channels ensure peak performance and comfort in the most demanding trail conditions and high-jump landings.',
         images: [
+            '/products/p7_5.jpg',
             '/products/p7_1.jpg',
             '/products/p7_2.jpg',
             '/products/p7_3.jpg',
@@ -167,6 +168,7 @@ export const products: Product[] = [
         name: 'Omni-Sport Protection Kit',
         description: 'The ultimate multi-discipline safety solution. From motorcycling to professional skateboarding, this versatile set provides top-tier impact management and precision fit for all-terrain athletes and beginners alike.',
         images: [
+            '/products/p8_5.jpg',
             '/products/p8_1.jpg',
             '/products/p8_2.jpg',
             '/products/p8_3.jpg',
