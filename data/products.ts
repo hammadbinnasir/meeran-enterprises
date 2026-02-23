@@ -128,6 +128,7 @@ export const products: Product[] = [
         name: 'Titan-Shield Shin Guard',
         description: 'Advanced anti-collision shin protection built for high-impact environments. Features cold-resistant polymer plates and triple-strap security for absolute stability during intense operations and rough terrain navigation.',
         images: [
+            '/products/p6_5.jpg',
             '/products/p6_1.jpg',
             '/products/p6_2.jpg',
             '/products/p6_3.jpg',
