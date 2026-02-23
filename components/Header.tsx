@@ -20,7 +20,7 @@ const TrackingModal: React.FC<{ isOpen: boolean; onClose: () => void }> = ({ isO
   };
 
   return (
-    <div className="fixed inset-0 z-[100] flex items-center justify-center p-4">
+    <div className="fixed inset-0 z-[2000] flex items-center justify-center p-4">
       <div className="absolute inset-0 bg-black/60 backdrop-blur-md" onClick={onClose} />
       <div className="relative w-full max-w-md bg-white rounded-2xl shadow-2xl p-8 animate-zoom-in">
         <button onClick={onClose} className="absolute top-4 right-4 text-gray-400 hover:text-gray-900">
@@ -67,7 +67,7 @@ const TrackingModal: React.FC<{ isOpen: boolean; onClose: () => void }> = ({ isO
 const SearchOverlay: React.FC<{ isOpen: boolean; onClose: () => void }> = ({ isOpen, onClose }) => {
   if (!isOpen) return null;
   return (
-    <div className="fixed inset-0 z-[110] bg-white/95 backdrop-blur-xl animate-fade-in flex flex-col p-6">
+    <div className="fixed inset-0 z-[2000] bg-white/95 backdrop-blur-xl animate-fade-in flex flex-col p-6">
       <div className="container mx-auto">
         <div className="flex justify-end mb-12">
           <button onClick={onClose} className="p-2 hover:bg-gray-100 rounded-full transition-colors"><X size={32} /></button>
@@ -113,7 +113,7 @@ const CheckoutModal: React.FC<{
   };
 
   return (
-    <div className="fixed inset-0 z-[130] overflow-y-auto overflow-x-hidden">
+    <div className="fixed inset-0 z-[2100] overflow-y-auto overflow-x-hidden">
       <div className="flex min-h-full items-center justify-center p-4">
         {/* Backdrop */}
         <div
@@ -186,7 +186,7 @@ const CheckoutModal: React.FC<{
 
 const CartDrawer: React.FC<{ isOpen: boolean; onClose: () => void; items: any[]; onRemove: (id: string) => void; onCheckout: () => void }> = ({ isOpen, onClose, items, onRemove, onCheckout }) => {
   return (
-    <div className={`fixed inset-0 z-[120] ${isOpen ? 'pointer-events-auto' : 'pointer-events-none'}`}>
+    <div className={`fixed inset-0 z-[2050] ${isOpen ? 'pointer-events-auto' : 'pointer-events-none'}`}>
       <div className={`absolute inset-0 bg-black/40 backdrop-blur-sm transition-opacity duration-500 ${isOpen ? 'opacity-100' : 'opacity-0'}`} onClick={onClose} />
       <div className={`absolute top-0 right-0 h-full w-full max-w-md bg-white shadow-2xl transition-transform duration-500 transform ${isOpen ? 'translate-x-0' : 'translate-x-full'} flex flex-col`}>
         <div className="p-6 border-b border-gray-100 flex items-center justify-between">
@@ -312,85 +312,87 @@ export const Header: React.FC<{
   }, []);
 
   return (
-    <header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ease-in-out ${isScrolled ? 'bg-white/90 backdrop-blur-md shadow-sm py-4' : 'bg-transparent py-6'}`}
-    >
-      <div className="container mx-auto px-6 flex items-center justify-between">
-        <Link to="/" onClick={() => isHome && window.scrollTo({ top: 0, behavior: 'smooth' })} className="z-50 relative hover:opacity-80 transition-opacity">
-          <Logo className="h-9" variant={isHome && !isScrolled && !isMobileMenuOpen ? 'light' : 'dark'} />
-        </Link>
+    <>
+      <header
+        className={`fixed top-0 left-0 right-0 z-[500] transition-all duration-300 ease-in-out ${isScrolled ? 'bg-white/90 backdrop-blur-md shadow-sm py-4' : 'bg-transparent py-6'}`}
+      >
+        <div className="container mx-auto px-6 flex items-center justify-between">
+          <Link to="/" onClick={() => isHome && window.scrollTo({ top: 0, behavior: 'smooth' })} className="z-50 relative hover:opacity-80 transition-opacity">
+            <Logo className="h-9" variant={isHome && !isScrolled && !isMobileMenuOpen ? 'light' : 'dark'} />
+          </Link>
 
-        <nav className="hidden md:flex items-center gap-8 text-sm font-medium">
-          {navLinks.map((link) => {
-            const isActive = activeSection === link.href.split('#')[1];
-            const baseTextColor = isHome && !isScrolled ? 'text-white/90 hover:text-white' : 'text-gray-600 hover:text-brand-600';
-            const activeTextColor = isHome && !isScrolled ? 'text-white font-bold' : 'text-brand-600 font-bold';
+          <nav className="hidden md:flex items-center gap-8 text-sm font-medium">
+            {navLinks.map((link) => {
+              const isActive = activeSection === link.href.split('#')[1];
+              const baseTextColor = isHome && !isScrolled ? 'text-white/90 hover:text-white' : 'text-gray-600 hover:text-brand-600';
+              const activeTextColor = isHome && !isScrolled ? 'text-white font-bold' : 'text-brand-600 font-bold';
 
-            return isHome ? (
-              <a key={link.label} href={link.href} className={`transition-colors relative py-1 ${isActive ? activeTextColor : baseTextColor}`}>
-                {link.label}
-                {isActive && <span className={`absolute bottom-0 left-0 w-full h-1 rounded-full animate-fade-in ${isHome && !isScrolled ? 'bg-white' : 'bg-brand-600'}`}></span>}
-              </a>
-            ) : (
-              <Link key={link.label} to={link.href} className={`transition-colors py-1 ${baseTextColor}`}>
-                {link.label}
-              </Link>
-            );
-          })}
-        </nav>
+              return isHome ? (
+                <a key={link.label} href={link.href} className={`transition-colors relative py-1 ${isActive ? activeTextColor : baseTextColor}`}>
+                  {link.label}
+                  {isActive && <span className={`absolute bottom-0 left-0 w-full h-1 rounded-full animate-fade-in ${isHome && !isScrolled ? 'bg-white' : 'bg-brand-600'}`}></span>}
+                </a>
+              ) : (
+                <Link key={link.label} to={link.href} className={`transition-colors py-1 ${baseTextColor}`}>
+                  {link.label}
+                </Link>
+              );
+            })}
+          </nav>
 
-        <div className="hidden md:flex items-center gap-4">
-          <button onClick={() => setIsSearchOpen(true)} className={`p-2 transition-colors ${isHome && !isScrolled ? 'text-white/90 hover:text-white' : 'text-gray-500 hover:text-brand-600'}`}><Search size={20} /></button>
-          <button onClick={() => setIsTrackModalOpen(true)} className={`flex items-center gap-2 px-4 py-2 rounded-full border transition-all text-xs font-semibold ${isHome && !isScrolled ? 'border-white/30 bg-white/10 text-white hover:bg-white/20' : 'border-gray-200 bg-white/50 text-brand-900 hover:bg-white hover:shadow-md'}`}>Track Order</button>
-          <button onClick={() => setIsCartOpen(true)} className={`relative p-2 transition-colors ${isHome && !isScrolled ? 'text-white/90 hover:text-white' : 'text-gray-800 hover:text-brand-600'}`}>
-            <ShoppingBag size={20} />
-            {cartItems.length > 0 && <span className="absolute top-0 right-0 w-4 h-4 bg-brand-500 text-white text-[10px] font-bold rounded-full flex items-center justify-center animate-zoom-in">{cartItems.length}</span>}
-          </button>
-        </div>
-
-        <button className={`md:hidden p-2 z-50 relative ${isHome && !isScrolled && !isMobileMenuOpen ? 'text-white' : 'text-gray-800'}`} onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}>
-          {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
-        </button>
-
-
-        {isMobileMenuOpen && (
-          <div className="fixed inset-0 bg-white z-40 flex flex-col pt-24 px-6 md:hidden animate-slide-down overflow-y-auto">
-            <div className="flex flex-col space-y-2">
-              {navLinks.map((link) => (
-                isHome ? (
-                  <a
-                    key={link.label} href={link.href}
-                    className={`flex items-center justify-between text-2xl font-medium py-4 border-b border-gray-100 group active:text-brand-600 ${activeSection === link.href.substring(1) ? 'text-brand-600' : 'text-gray-900'}`}
-                    onClick={() => setIsMobileMenuOpen(false)}
-                  >
-                    {link.label}
-                    <ChevronRight size={20} className={activeSection === link.href.substring(1) ? 'text-brand-600' : 'text-gray-300'} />
-                  </a>
-                ) : (
-                  <Link
-                    key={link.label} to={link.href}
-                    className="flex items-center justify-between text-2xl font-medium py-4 border-b border-gray-100 group text-gray-900"
-                    onClick={() => setIsMobileMenuOpen(false)}
-                  >
-                    {link.label}
-                    <ChevronRight size={20} className="text-gray-300" />
-                  </Link>
-                )
-              ))}
-            </div>
-            <div className="mt-8 space-y-4">
-              <button onClick={() => { setIsTrackModalOpen(true); setIsMobileMenuOpen(false); }} className="w-full flex items-center justify-between px-6 py-4 rounded-xl bg-gray-50 text-brand-900 font-medium active:bg-gray-100">
-                <span>Track Order</span>
-                <Globe size={20} />
-              </button>
-              <button onClick={() => { setIsCartOpen(true); setIsMobileMenuOpen(false); }} className="w-full flex items-center justify-center gap-2 px-6 py-4 rounded-xl bg-brand-900 text-white font-bold shadow-lg shadow-brand-900/10 active:scale-95 transition-transform">
-                <ShoppingBag size={20} />
-                Go to Cart ({cartItems.length})
-              </button>
-            </div>
+          <div className="hidden md:flex items-center gap-4">
+            <button onClick={() => setIsSearchOpen(true)} className={`p-2 transition-colors ${isHome && !isScrolled ? 'text-white/90 hover:text-white' : 'text-gray-500 hover:text-brand-600'}`}><Search size={20} /></button>
+            <button onClick={() => setIsTrackModalOpen(true)} className={`flex items-center gap-2 px-4 py-2 rounded-full border transition-all text-xs font-semibold ${isHome && !isScrolled ? 'border-white/30 bg-white/10 text-white hover:bg-white/20' : 'border-gray-200 bg-white/50 text-brand-900 hover:bg-white hover:shadow-md'}`}>Track Order</button>
+            <button onClick={() => setIsCartOpen(true)} className={`relative p-2 transition-colors ${isHome && !isScrolled ? 'text-white/90 hover:text-white' : 'text-gray-800 hover:text-brand-600'}`}>
+              <ShoppingBag size={20} />
+              {cartItems.length > 0 && <span className="absolute top-0 right-0 w-4 h-4 bg-brand-500 text-white text-[10px] font-bold rounded-full flex items-center justify-center animate-zoom-in">{cartItems.length}</span>}
+            </button>
           </div>
-        )}
-      </div>
+
+          <button className={`md:hidden p-2 z-50 relative ${isHome && !isScrolled && !isMobileMenuOpen ? 'text-white' : 'text-gray-800'}`} onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}>
+            {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
+          </button>
+
+
+          {isMobileMenuOpen && (
+            <div className="fixed inset-0 bg-white z-40 flex flex-col pt-24 px-6 md:hidden animate-slide-down overflow-y-auto">
+              <div className="flex flex-col space-y-2">
+                {navLinks.map((link) => (
+                  isHome ? (
+                    <a
+                      key={link.label} href={link.href}
+                      className={`flex items-center justify-between text-2xl font-medium py-4 border-b border-gray-100 group active:text-brand-600 ${activeSection === link.href.substring(1) ? 'text-brand-600' : 'text-gray-900'}`}
+                      onClick={() => setIsMobileMenuOpen(false)}
+                    >
+                      {link.label}
+                      <ChevronRight size={20} className={activeSection === link.href.substring(1) ? 'text-brand-600' : 'text-gray-300'} />
+                    </a>
+                  ) : (
+                    <Link
+                      key={link.label} to={link.href}
+                      className="flex items-center justify-between text-2xl font-medium py-4 border-b border-gray-100 group text-gray-900"
+                      onClick={() => setIsMobileMenuOpen(false)}
+                    >
+                      {link.label}
+                      <ChevronRight size={20} className="text-gray-300" />
+                    </Link>
+                  )
+                ))}
+              </div>
+              <div className="mt-8 space-y-4">
+                <button onClick={() => { setIsTrackModalOpen(true); setIsMobileMenuOpen(false); }} className="w-full flex items-center justify-between px-6 py-4 rounded-xl bg-gray-50 text-brand-900 font-medium active:bg-gray-100">
+                  <span>Track Order</span>
+                  <Globe size={20} />
+                </button>
+                <button onClick={() => { setIsCartOpen(true); setIsMobileMenuOpen(false); }} className="w-full flex items-center justify-center gap-2 px-6 py-4 rounded-xl bg-brand-900 text-white font-bold shadow-lg shadow-brand-900/10 active:scale-95 transition-transform">
+                  <ShoppingBag size={20} />
+                  Go to Cart ({cartItems.length})
+                </button>
+              </div>
+            </div>
+          )}
+        </div>
+      </header>
       <TrackingModal isOpen={isTrackModalOpen} onClose={() => setIsTrackModalOpen(false)} />
       <SearchOverlay isOpen={isSearchOpen} onClose={() => setIsSearchOpen(false)} />
       <CartDrawer
@@ -406,6 +408,6 @@ export const Header: React.FC<{
         items={cartItems}
         onSuccess={onClearCart}
       />
-    </header>
+    </>
   );
 };
