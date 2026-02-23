@@ -2,8 +2,8 @@ import React, { useState } from 'react';
 import { MapPin, Clock, Phone, Mail, ExternalLink, Factory, Building2 } from 'lucide-react';
 
 export const Location: React.FC = () => {
-    const headOfficeMap = "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3388.93282431683!2d74.19561081514781!3d32.1610449811634!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x391f299105edb0e9%3A0xe67db5d9c240974b!2sBhutta%20Centre!5e0!3m2!1sen!2s!4v1707755000000!5m2!1sen!2s";
-    const warehouseMap = "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d14333.123456789!2d74.190123!3d32.155678!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x391f29ec58599143%3A0xc343468087913340!2sGill%20Road%2C%20Gujranwala!5e0!3m2!1sen!2s!4v1707755000000!5m2!1sen!2s";
+    const headOfficeMap = "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3389.263884841968!2d74.1912!3d32.1415!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x391f29796e95b07b%3A0x6d90a1e351829f0e!2sBhutta%20Centre!5e0!3m2!1sen!2s!4v1740315200000!5m2!1sen!2s";
+    const warehouseMap = "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d14330.123!2d74.1899!3d32.1771!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x391f29ec58599143%3A0xc343468087913340!2sGill%20Road%2C%20Gujranwala!5e0!3m2!1sen!2s!4v1740315300000!5m2!1sen!2s";
 
     const [activeMap, setActiveMap] = useState(headOfficeMap);
     const [activeHub, setActiveHub] = useState<'office' | 'warehouse'>('office');
