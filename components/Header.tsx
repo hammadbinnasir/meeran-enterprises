@@ -250,6 +250,7 @@ export const Header: React.FC<{
     { label: 'Technology', href: isHome ? '#technology' : '/#technology' },
     { label: 'Global Hub', href: isHome ? '#location' : '/#location' },
     { label: 'Logistics', href: isHome ? '#logistics' : '/#logistics' },
+    { label: 'Legal', href: isHome ? '#certifications' : '/#certifications' },
     { label: 'Wholesale', href: isHome ? '#wholesale' : '/#wholesale' },
   ];
 

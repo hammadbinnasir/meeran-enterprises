@@ -8,6 +8,7 @@ import { Logistics } from './components/Logistics';
 import { Wholesale } from './components/Wholesale';
 import { Footer } from './components/Footer';
 import { WhatsAppButton } from './components/WhatsAppButton';
+import { Certifications } from './components/Certifications';
 
 import { Product } from './types';
 
@@ -21,6 +22,7 @@ const HomePage: React.FC<{ addToCart: (p: Product) => void }> = ({ addToCart }) 
     <Technology />
     <Location />
     <Logistics />
+    <Certifications />
     <Wholesale />
   </main>
 );

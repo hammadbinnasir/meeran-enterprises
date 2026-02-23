@@ -37,6 +37,7 @@ export const Footer: React.FC = () => {
               <li><button onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })} className="hover:text-brand-600 transition-colors">Track Order</button></li>
               <li><a href="#wholesale" className="hover:text-brand-600 transition-colors">Wholesale Inquiry</a></li>
               <li><a href="#technology" className="hover:text-brand-600 transition-colors">Technology</a></li>
+              <li><a href="#certifications" className="hover:text-brand-600 transition-colors">Certifications</a></li>
               <li><a href="#logistics" className="hover:text-brand-600 transition-colors">Logistics Hub</a></li>
             </ul>
           </div>
