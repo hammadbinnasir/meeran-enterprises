@@ -67,7 +67,7 @@ export const Footer: React.FC = () => {
         </div>
 
         <div className="border-t border-gray-200 pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-gray-400">
-          <p>&copy; 2026 Meeran Enterprises. All rights reserved.</p>
+          <p>&copy; 2026 Raza Meeran Enterprises. All rights reserved.</p>
           <div className="flex gap-6">
             <a href="#" className="hover:text-gray-600">Privacy</a>
             <a href="#" className="hover:text-gray-600">Terms</a>

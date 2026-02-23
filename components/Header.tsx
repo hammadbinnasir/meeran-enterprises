@@ -165,7 +165,7 @@ const CheckoutModal: React.FC<{
               <ChevronRight size={40} className="rotate-[-90deg]" />
             </div>
             <h3 className="text-3xl font-bold text-gray-900 mb-2">Order Confirmed!</h3>
-            <p className="text-gray-500 mb-8">Thank you for choosing Meeran Enterprises. Your tactical gear is being prepared for dispatch.</p>
+            <p className="text-gray-500 mb-8">Thank you for choosing Raza Meeran Enterprises. Your tactical gear is being prepared for dispatch.</p>
             <div className="inline-block px-4 py-2 bg-gray-50 rounded-full text-xs font-mono text-gray-400 uppercase tracking-widest">
               Order ID: ME-{Math.random().toString(36).substr(2, 9).toUpperCase()}
             </div>
