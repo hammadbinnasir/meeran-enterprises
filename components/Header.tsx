@@ -15,7 +15,7 @@ const TrackingModal: React.FC<{ isOpen: boolean; onClose: () => void }> = ({ isO
     setIsTracking(true);
     setTimeout(() => {
       setIsTracking(false);
-      setStatus('In Transit - Your order is currently at the Dubai Logistics Hub.');
+      setStatus('In Transit - Your order is being processed at our Logistics Hub.');
     }, 1500);
   };
 
@@ -115,13 +115,13 @@ const CheckoutModal: React.FC<{
   return (
     <div className="fixed inset-0 z-[130] flex items-center justify-center p-4">
       <div className="absolute inset-0 bg-brand-900/40 backdrop-blur-md animate-fade-in" onClick={step === 'form' ? onClose : undefined} />
-      <div className="relative w-full max-w-lg bg-white rounded-3xl shadow-2xl overflow-hidden animate-zoom-in">
+      <div className="relative w-full max-w-lg bg-white rounded-3xl shadow-2xl overflow-y-auto animate-zoom-in max-h-[90dvh]">
         {step === 'form' && (
           <div className="p-8 md:p-12">
             <button onClick={onClose} className="absolute top-6 right-6 text-gray-400 hover:text-gray-900"><X size={20} /></button>
             <div className="mb-8">
               <h3 className="text-2xl font-bold text-gray-900">Finalize Order</h3>
-              <p className="text-gray-500 text-sm mt-1">Shipping from Dubai International Hub</p>
+              <p className="text-gray-500 text-sm mt-1">Shipping from Global Logistics Hub</p>
             </div>
 
             <form onSubmit={handleSubmit} className="space-y-4">
@@ -135,7 +135,7 @@ const CheckoutModal: React.FC<{
               </div>
               <div className="space-y-1">
                 <label className="text-[10px] font-bold uppercase tracking-widest text-gray-400 ml-1">Shipping Address</label>
-                <textarea required value={formData.address} onChange={e => setFormData({ ...formData, address: e.target.value })} className="w-full px-4 py-3 rounded-xl border border-gray-100 bg-gray-50 focus:outline-none focus:border-brand-600 transition-colors h-24 resize-none" placeholder="123 Palm Jumeirah, Dubai, UAE" />
+                <textarea required value={formData.address} onChange={e => setFormData({ ...formData, address: e.target.value })} className="w-full px-4 py-3 rounded-xl border border-gray-100 bg-gray-50 focus:outline-none focus:border-brand-600 transition-colors h-24 resize-none" placeholder="Enter Full Shipping Address (Street, City, Country)" />
               </div>
 
               <div className="pt-6 border-t border-gray-50 mt-8">
