@@ -70,6 +70,7 @@ export const products: Product[] = [
         name: 'Aero-Glide Impact Pads',
         description: 'Engineered for extreme gliding and street sports. These thickened anti-fall knee pads feature reinforced wrist support using advanced ballistic nylon and ergonomic pivot points for fearless performance. The thick padding provides unmatched landing safety.',
         images: [
+            '/products/p3_5.jpg',
             '/products/p3_1.jpg',
             '/products/p3_2.jpg',
             '/products/p3_3.jpg',
