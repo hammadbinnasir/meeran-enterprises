@@ -49,10 +49,14 @@ export const Footer: React.FC = () => {
               <a href="#" className="text-gray-400 hover:text-brand-600"><Instagram size={20} /></a>
               <a href="#" className="text-gray-400 hover:text-brand-600"><Linkedin size={20} /></a>
             </div>
-            <div className="text-sm text-gray-500">
+            <div className="text-sm text-gray-500 space-y-2">
               <p className="flex items-center gap-2 hover:text-brand-600 transition-colors">
                 <Mail size={14} />
-                support@meeran.com
+                sales@meeranenterprises.com
+              </p>
+              <p className="flex items-center gap-2 hover:text-brand-600 transition-colors">
+                <Mail size={14} />
+                info@meeranenterprises.com
               </p>
               <a href="https://wa.me/923000600903" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 mt-2 hover:text-brand-600 transition-colors">
                 <span className="font-bold">WhatsApp:</span>
