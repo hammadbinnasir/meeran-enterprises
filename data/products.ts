@@ -201,7 +201,7 @@ export const products: Product[] = [
             'Sold as a pair',
             'Mfg# DKP-B'
         ],
-        specs: { material: 'Carbon Fiber Hybrid', weight: '180g', certification: 'ISO 9001', impactRating: 'Level 2' }
+        specs: { material: 'Carbon Fiber Hybrid', weight: '180g', certification: 'ISO 9001:2008', impactRating: 'Level 2' }
     },
     {
         id: 'p2',

@@ -27,7 +27,7 @@ const technologies = [
 
 const certifications = [
     { label: "CE EN 1621-1:2012", sub: "Impact Protection Level 1 & 2" },
-    { label: "ISO 9001:2015", sub: "Quality Management Standard" },
+    { label: "ISO 9001:2008", sub: "Quality Management Standard" },
     { label: "ANSI/ISEA 105-2016", sub: "Hand Protection Cut Level" },
     { label: "Red Dot Design", sub: "International Product Excellence" }
 ];
