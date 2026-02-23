@@ -167,7 +167,7 @@ const CheckoutModal: React.FC<{
             <h3 className="text-3xl font-bold text-gray-900 mb-2">Order Confirmed!</h3>
             <p className="text-gray-500 mb-8">Thank you for choosing Raza Meeran Enterprises. Your tactical gear is being prepared for dispatch.</p>
             <div className="inline-block px-4 py-2 bg-gray-50 rounded-full text-xs font-mono text-gray-400 uppercase tracking-widest">
-              Order ID: ME-{Math.random().toString(36).substr(2, 9).toUpperCase()}
+              Order ID: RME-{Math.random().toString(36).substr(2, 9).toUpperCase()}
             </div>
           </div>
         )}
@@ -287,6 +287,22 @@ export const Header: React.FC<{
       document.body.style.overflow = 'unset';
     }
   }, [isMobileMenuOpen, isTrackModalOpen, isSearchOpen, isCartOpen, isCheckoutOpen]);
+
+  useEffect(() => {
+    const handleOpenTracker = () => {
+      setIsTrackModalOpen(true);
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    };
+    const handleOpenCart = () => setIsCartOpen(true);
+
+    window.addEventListener('open-tracker', handleOpenTracker);
+    window.addEventListener('open-cart', handleOpenCart);
+
+    return () => {
+      window.removeEventListener('open-tracker', handleOpenTracker);
+      window.removeEventListener('open-cart', handleOpenCart);
+    };
+  }, []);
 
   return (
     <header

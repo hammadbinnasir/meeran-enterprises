@@ -49,7 +49,7 @@ export const Wholesale: React.FC = () => {
       <div className="container mx-auto px-6 relative z-10">
         <div className="flex flex-col lg:flex-row items-center justify-between gap-16">
           <div className="max-w-xl">
-            <h2 className="text-sm font-semibold text-brand-500 uppercase tracking-widest mb-4">Meeran B2B</h2>
+            <h2 className="text-sm font-semibold text-brand-500 uppercase tracking-widest mb-4">Raza Meeran B2B</h2>
             <h3 className="text-4xl md:text-5xl font-bold mb-6">Partner with the Elite.</h3>
             <p className="text-gray-400 text-lg mb-8 font-light">
               Join our global network of distributors. Access exclusive bulk pricing, marketing assets, and priority manufacturing slots for orders over 500 units.

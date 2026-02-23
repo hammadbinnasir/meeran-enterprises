@@ -19,11 +19,11 @@ export const Logo: React.FC<LogoProps> = ({ className = "h-10", variant = 'dark'
             </div>
 
             {showText && (
-                <div className="flex flex-col leading-none border-l border-gray-200/50 pl-3 py-1">
-                    <span className={`text-xl font-bold tracking-tight ${variant === 'dark' ? 'text-gray-900' : 'text-white'}`}>
+                <div className="flex flex-col leading-none border-l border-gray-200/50 pl-3 py-1 selection:bg-none">
+                    <span className={`text-xl font-bold tracking-tight whitespace-nowrap ${variant === 'dark' ? 'text-gray-900' : 'text-white'}`}>
                         Raza Meeran
                     </span>
-                    <span className={`text-[9px] font-bold tracking-[0.25em] uppercase opacity-60 ${variant === 'dark' ? 'text-gray-500' : 'text-white/80'}`}>
+                    <span className={`text-[9px] font-bold tracking-[0.25em] uppercase opacity-60 whitespace-nowrap ${variant === 'dark' ? 'text-gray-500' : 'text-white/80'}`}>
                         Enterprises
                     </span>
                 </div>

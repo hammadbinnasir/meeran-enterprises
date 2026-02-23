@@ -37,7 +37,10 @@ export const ProductPage: React.FC<{ onAddToCart: (p: Product) => void }> = ({ o
     const handleAdd = () => {
         onAddToCart(product);
         setIsAdded(true);
-        setTimeout(() => setIsAdded(false), 2000);
+        setTimeout(() => {
+            setIsAdded(false);
+            window.dispatchEvent(new CustomEvent('open-cart'));
+        }, 800);
     };
 
     return (

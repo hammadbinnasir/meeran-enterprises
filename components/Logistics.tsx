@@ -33,7 +33,7 @@ export const Logistics: React.FC = () => {
           </div>
           <div className="flex items-center gap-12">
             <div className="hidden lg:block text-sm text-gray-500 max-w-xs text-right">
-              Direct from our main manufacturing and logistics hub in Sialkot, Pakistan.
+              Direct from our main manufacturing and logistics hub in Gujranwala, Pakistan.
             </div>
             <div className="flex gap-2">
               <button

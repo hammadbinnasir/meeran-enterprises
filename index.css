@@ -23,3 +23,50 @@ img {
   image-rendering: -webkit-optimize-contrast;
   image-rendering: crisp-edges;
 }
+
+/* Premium Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--brand-50);
+}
+
+::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 10px;
+  border: 2px solid var(--brand-50);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--brand-400);
+}
+
+/* Selection */
+::selection {
+  background: var(--brand-900);
+  color: white;
+}
+
+/* Smooth Page Entry */
+body {
+  animation: pageFadeIn 1s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@keyframes pageFadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Utility to prevent FOUC (Flash of Unstyled Content) or raw text wrapping */
+.text-balance {
+  text-wrap: balance;
+}

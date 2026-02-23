@@ -34,7 +34,7 @@ export const Footer: React.FC = () => {
           <div>
             <h4 className="font-bold text-gray-900 mb-4">Support</h4>
             <ul className="space-y-2 text-sm text-gray-500">
-              <li><button onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })} className="hover:text-brand-600 transition-colors">Track Order</button></li>
+              <li><button onClick={() => window.dispatchEvent(new CustomEvent('open-tracker'))} className="hover:text-brand-600 transition-colors">Track Order</button></li>
               <li><a href="#wholesale" className="hover:text-brand-600 transition-colors">Wholesale Inquiry</a></li>
               <li><a href="#technology" className="hover:text-brand-600 transition-colors">Technology</a></li>
               <li><a href="#certifications" className="hover:text-brand-600 transition-colors">Certifications</a></li>
