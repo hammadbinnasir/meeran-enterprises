@@ -5,6 +5,7 @@ export interface Product {
   description: string;
   images: string[];
   features?: string[];
+  status?: 'In Stock' | 'In Progress' | 'Coming Soon' | 'Out of Stock';
   specs: {
     material: string;
     weight: string;

@@ -25,7 +25,8 @@ export const products: Product[] = [
             'Compatible with tactical pants and uniforms',
             'Model: LNP-700 / Series-X'
         ],
-        specs: { material: 'Impact Polymer / 1000D Nylon', weight: '320g', certification: 'EN1621-1:2012', impactRating: 'Level 2' }
+        specs: { material: 'Impact Polymer / 1000D Nylon', weight: '320g', certification: 'EN1621-1:2012', impactRating: 'Level 2' },
+        status: 'In Stock'
     },
     {
         id: 'p-tactical-set',
@@ -44,7 +45,8 @@ export const products: Product[] = [
             'Quiet-strap technology for stealth operations',
             'Moisture-wicking mesh interior'
         ],
-        specs: { material: 'Polymer / EVA / Nylon', weight: '450g (Set)', certification: 'Tactical Standard', impactRating: 'High' }
+        specs: { material: 'Polymer / EVA / Nylon', weight: '450g (Set)', certification: 'Tactical Standard', impactRating: 'High' },
+        status: 'In Progress'
     },
     {
         id: 'p-junior-pro',
@@ -63,7 +65,8 @@ export const products: Product[] = [
             'Adjustable hook-and-loop security straps',
             'Full 6-piece set (Knee, Elbow, Wrist)'
         ],
-        specs: { material: 'HDPE / Mesh / Polyester', weight: '380g (Full Set)', certification: 'CE Junior', impactRating: 'Impact Resistant' }
+        specs: { material: 'HDPE / Mesh / Polyester', weight: '380g (Full Set)', certification: 'CE Junior', impactRating: 'Impact Resistant' },
+        status: 'Out of Stock'
     },
     {
         id: 'p-aero-glide',
@@ -83,7 +86,8 @@ export const products: Product[] = [
             'Non-slip interior surface',
             'Rapid air-flow cooling design'
         ],
-        specs: { material: 'Ballistic Nylon / High-Density Foam', weight: '290g', certification: 'Street-Pro Grade', impactRating: 'Elite' }
+        specs: { material: 'Ballistic Nylon / High-Density Foam', weight: '290g', certification: 'Street-Pro Grade', impactRating: 'Elite' },
+        status: 'Coming Soon'
     },
     {
         id: 'p-terra-flow',
@@ -102,7 +106,8 @@ export const products: Product[] = [
             'Waterproof exterior for easy washing',
             'Extra-wide padding for joint stability'
         ],
-        specs: { material: 'Gel Core / PVC Shell', weight: '210g', certification: 'Home & Professional', impactRating: 'Comfort Grade' }
+        specs: { material: 'Gel Core / PVC Shell', weight: '210g', certification: 'Home & Professional', impactRating: 'Comfort Grade' },
+        status: 'In Stock'
     },
     {
         id: 'p-stealth-rider',
@@ -121,7 +126,8 @@ export const products: Product[] = [
             'Articulated joints for natural riding posture',
             'Reflective elements for night visibility'
         ],
-        specs: { material: 'Bio-Foam / Polypropylene', weight: '550g (Set)', certification: 'CE EN1621', impactRating: 'Track Grade' }
+        specs: { material: 'Bio-Foam / Polypropylene', weight: '550g (Set)', certification: 'CE EN1621', impactRating: 'Track Grade' },
+        status: 'Coming Soon'
     },
     {
         id: 'p-titan-shield',
@@ -141,7 +147,8 @@ export const products: Product[] = [
             'Extra-wide shin coverage',
             'Antibacterial interior fabric'
         ],
-        specs: { material: 'Reinforced Polymer / Mesh', weight: '260g', certification: 'Tactical Class 1', impactRating: 'Collision Proof' }
+        specs: { material: 'Reinforced Polymer / Mesh', weight: '260g', certification: 'Tactical Class 1', impactRating: 'Collision Proof' },
+        status: 'In Stock'
     },
     {
         id: 'p-motocross-xtreme',
@@ -161,7 +168,8 @@ export const products: Product[] = [
             'High-grip padding for bike control',
             'Reinforced shin extension'
         ],
-        specs: { material: 'Advanced Composite / Nylon', weight: '420g', certification: 'Moto-X Standard', impactRating: 'X-Treme' }
+        specs: { material: 'Advanced Composite / Nylon', weight: '420g', certification: 'Moto-X Standard', impactRating: 'X-Treme' },
+        status: 'In Progress'
     },
     {
         id: 'p-omni-sport',
@@ -181,7 +189,8 @@ export const products: Product[] = [
             'Quick-dry interior for heavy sweat',
             'Compact storage integration'
         ],
-        specs: { material: 'Multi-Polymer / Synthetic Fiber', weight: '340g', certification: 'Multi-Sport Standard', impactRating: 'Universal' }
+        specs: { material: 'Multi-Polymer / Synthetic Fiber', weight: '340g', certification: 'Multi-Sport Standard', impactRating: 'Universal' },
+        status: 'Coming Soon'
     },
     {
         id: 'p1',
@@ -201,7 +210,8 @@ export const products: Product[] = [
             'Sold as a pair',
             'Mfg# DKP-B'
         ],
-        specs: { material: 'Carbon Fiber Hybrid', weight: '180g', certification: 'ISO 9001:2008', impactRating: 'Level 2' }
+        specs: { material: 'Carbon Fiber Hybrid', weight: '180g', certification: 'ISO 9001:2008', impactRating: 'Level 2' },
+        status: 'In Stock'
     },
     {
         id: 'p2',
@@ -218,7 +228,8 @@ export const products: Product[] = [
             'Designed specifically for riot control and high-risk inmate movement',
             'Model: Defender Series'
         ],
-        specs: { material: 'Leather / Carbon-Composite', weight: '150g', certification: 'CE EN1621', impactRating: 'Level 1' }
+        specs: { material: 'Leather / Carbon-Composite', weight: '150g', certification: 'CE EN1621', impactRating: 'Level 1' },
+        status: 'In Stock'
     },
     {
         id: 'p4',
@@ -242,7 +253,8 @@ export const products: Product[] = [
             'Reinforced stitching for extreme durability',
             'Model: SKP-95 / Pro-Shell'
         ],
-        specs: { material: 'Polymer / Nylon', weight: '220g', certification: 'CE Level 1', impactRating: 'Tactical Grade' }
+        specs: { material: 'Polymer / Nylon', weight: '220g', certification: 'CE Level 1', impactRating: 'Tactical Grade' },
+        status: 'Out of Stock'
     },
     {
         id: 'p-flex-guard',
@@ -265,7 +277,8 @@ export const products: Product[] = [
             'Advanced airflow channels for temperature regulation',
             'Quick-adjust security strap system'
         ],
-        specs: { material: 'Soft EVA / High-Strength Polymer', weight: '280g', certification: 'EN1621-1 Level 1', impactRating: 'Pro-Flex Grade' }
+        specs: { material: 'Soft EVA / High-Strength Polymer', weight: '280g', certification: 'EN1621-1 Level 1', impactRating: 'Pro-Flex Grade' },
+        status: 'Coming Soon'
     },
     {
         id: 'p-vanguard-system',
@@ -287,6 +300,7 @@ export const products: Product[] = [
             'Adjustable triple-strap security for a custom fit',
             'Breathable mesh lining for long-distance comfort'
         ],
-        specs: { material: 'High-Impact Polymer / Soft Foam Core', weight: '420g', certification: 'CE EN1621-1', impactRating: 'Elite Road Grade' }
+        specs: { material: 'High-Impact Polymer / Soft Foam Core', weight: '420g', certification: 'CE EN1621-1', impactRating: 'Elite Road Grade' },
+        status: 'In Progress'
     }
 ];

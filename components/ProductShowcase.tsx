@@ -39,9 +39,18 @@ const ProductCard: React.FC<{
           </div>
         </div>
 
-        <div className="absolute top-3 left-3 bg-white/90 backdrop-blur px-2 py-1 rounded-md text-[10px] font-bold tracking-wider uppercase text-gray-800 pointer-events-none shadow-sm z-10">
-          In Stock
-        </div>
+        {product.status && (
+          <div className={`absolute top-3 left-3 px-2 py-1 rounded-md text-[10px] font-bold tracking-wider uppercase pointer-events-none shadow-sm z-10 backdrop-blur-md ${product.status === 'In Stock'
+            ? 'bg-green-500/90 text-white'
+            : product.status === 'Out of Stock'
+              ? 'bg-red-500/90 text-white'
+              : product.status === 'Coming Soon'
+                ? 'bg-blue-500/90 text-white'
+                : 'bg-amber-500/90 text-white'
+            }`}>
+            {product.status}
+          </div>
+        )}
       </div>
 
       <div className="p-6 flex flex-col flex-grow">

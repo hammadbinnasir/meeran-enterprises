@@ -23,7 +23,7 @@ export const Logo: React.FC<LogoProps> = ({ className = "h-12", variant = 'dark'
                     <span className={`text-2xl font-black tracking-tight whitespace-nowrap leading-[1.1] ${variant === 'dark' ? 'text-gray-900' : 'text-white'}`}>
                         Raza Meeran
                     </span>
-                    <span className={`text-[10px] font-bold tracking-[0.41em] uppercase opacity-70 whitespace-nowrap mt-0.5 ${variant === 'dark' ? 'text-gray-600' : 'text-white/90'}`}>
+                    <span className={`text-[10px] font-black tracking-[0.41em] uppercase whitespace-nowrap mt-0.5 ${variant === 'dark' ? 'text-gray-700' : 'text-white'}`}>
                         Enterprises
                     </span>
                 </div>
