@@ -8,7 +8,7 @@ export const Footer: React.FC = () => {
       <div className="container mx-auto px-6">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-12 mb-16">
           <div className="space-y-4">
-            <Logo className="h-8" />
+            <Logo className="h-12" />
             <p className="text-sm text-gray-500">
               Redefining athletic safety through material science and ergonomic design.
             </p>
@@ -51,10 +51,6 @@ export const Footer: React.FC = () => {
               <a href="#" className="text-gray-400 hover:text-brand-600"><Linkedin size={20} /></a>
             </div>
             <div className="text-sm text-gray-500 space-y-2">
-              <p className="flex items-center gap-2 hover:text-brand-600 transition-colors">
-                <Mail size={14} />
-                sales@meeranenterprises.com
-              </p>
               <p className="flex items-center gap-2 hover:text-brand-600 transition-colors">
                 <Mail size={14} />
                 info@meeranenterprises.com

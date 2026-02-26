@@ -6,9 +6,9 @@ interface LogoProps {
     showText?: boolean;
 }
 
-export const Logo: React.FC<LogoProps> = ({ className = "h-10", variant = 'dark', showText = true }) => {
+export const Logo: React.FC<LogoProps> = ({ className = "h-12", variant = 'dark', showText = true }) => {
     return (
-        <div className={`flex items-center gap-3 ${className} group cursor-pointer`}>
+        <div className={`flex items-center gap-4 ${className} group cursor-pointer`}>
             <div className="relative h-full aspect-square flex-shrink-0">
                 <img
                     src="/logo-premium.png"
@@ -19,11 +19,11 @@ export const Logo: React.FC<LogoProps> = ({ className = "h-10", variant = 'dark'
             </div>
 
             {showText && (
-                <div className="flex flex-col leading-none border-l border-gray-200/50 pl-3 py-1 selection:bg-none">
-                    <span className={`text-xl font-bold tracking-tight whitespace-nowrap ${variant === 'dark' ? 'text-gray-900' : 'text-white'}`}>
+                <div className="flex flex-col border-l-2 border-brand-500/30 pl-4 py-1.5 selection:bg-none">
+                    <span className={`text-2xl font-black tracking-tight whitespace-nowrap leading-[1.1] ${variant === 'dark' ? 'text-gray-900' : 'text-white'}`}>
                         Raza Meeran
                     </span>
-                    <span className={`text-[9px] font-bold tracking-[0.25em] uppercase opacity-60 whitespace-nowrap ${variant === 'dark' ? 'text-gray-500' : 'text-white/80'}`}>
+                    <span className={`text-[10px] font-bold tracking-[0.41em] uppercase opacity-70 whitespace-nowrap mt-0.5 ${variant === 'dark' ? 'text-gray-600' : 'text-white/90'}`}>
                         Enterprises
                     </span>
                 </div>

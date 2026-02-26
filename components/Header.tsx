@@ -318,7 +318,7 @@ export const Header: React.FC<{
       >
         <div className="container mx-auto px-6 flex items-center justify-between">
           <Link to="/" onClick={() => isHome && window.scrollTo({ top: 0, behavior: 'smooth' })} className="z-50 relative hover:opacity-80 transition-opacity">
-            <Logo className="h-9" variant={isHome && !isScrolled && !isMobileMenuOpen ? 'light' : 'dark'} />
+            <Logo className="h-14 md:h-16" variant={isHome && !isScrolled && !isMobileMenuOpen ? 'light' : 'dark'} />
           </Link>
 
           <nav className="hidden md:flex items-center gap-8 text-sm font-medium">
