@@ -1,12 +1,13 @@
 import React from 'react';
 import { Facebook, Twitter, Instagram, Linkedin, Mail } from 'lucide-react';
 import { Logo } from './Logo';
+import { Link } from 'react-router-dom';
 
 export const Footer: React.FC = () => {
   return (
     <footer className="bg-gray-50 pt-16 pb-8 border-t border-gray-200">
       <div className="container mx-auto px-6">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-12 mb-16">
+        <div className="grid grid-cols-1 md:grid-cols-5 gap-12 mb-16">
           <div className="space-y-4">
             <Logo className="h-12" />
             <p className="text-sm text-gray-500">
@@ -24,10 +25,22 @@ export const Footer: React.FC = () => {
           <div>
             <h4 className="font-bold text-gray-900 mb-4">Shop</h4>
             <ul className="space-y-2 text-sm text-gray-500">
-              <li><a href="#products" className="hover:text-brand-600 transition-colors">Safety Helmets</a></li>
-              <li><a href="#products" className="hover:text-brand-600 transition-colors">Knee Guards</a></li>
-              <li><a href="#products" className="hover:text-brand-600 transition-colors">Tactical Sets</a></li>
+              <li><Link to="/product/p-lnp-new" className="hover:text-brand-600 transition-colors">Knee Guards</Link></li>
+              <li><Link to="/product/p-tactical-set" className="hover:text-brand-600 transition-colors">Elbow Guards</Link></li>
+              <li><Link to="/product/p-rm-6in1-set" className="hover:text-brand-600 transition-colors">Wrist Guards</Link></li>
               <li><a href="#logistics" className="hover:text-brand-600 transition-colors">Global Shipping</a></li>
+            </ul>
+          </div>
+
+          <div>
+            <h4 className="font-bold text-gray-900 mb-4">Upcoming Products</h4>
+            <ul className="space-y-2 text-sm text-gray-500">
+              <li><span className="text-gray-400">Leather Jackets</span></li>
+              <li><span className="text-gray-400">Leather Racing Suits</span></li>
+              <li><span className="text-gray-400">Fashion Wear</span></li>
+              <li><span className="text-gray-400">Racing Boots</span></li>
+              <li><span className="text-gray-400">Football Kit</span></li>
+              <li><span className="text-gray-400">Basketball Kit</span></li>
             </ul>
           </div>
 

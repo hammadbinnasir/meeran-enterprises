@@ -9,8 +9,11 @@ export interface Product {
   specs: {
     material: string;
     weight: string;
-    certification: string;
-    impactRating: string;
+    certification?: string;
+    impactRating?: string;
+    color?: string;
+    sport?: string;
+    dimensions?: string;
   };
 }
 

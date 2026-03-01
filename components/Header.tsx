@@ -314,23 +314,23 @@ export const Header: React.FC<{
   return (
     <>
       <header
-        className={`fixed top-0 left-0 right-0 z-[500] transition-all duration-300 ease-in-out ${isScrolled ? 'bg-white/90 backdrop-blur-md shadow-sm py-4' : 'bg-transparent py-6'}`}
+        className={`fixed top-0 left-0 right-0 z-[500] transition-all duration-300 ease-in-out bg-white/90 backdrop-blur-md shadow-sm py-4`}
       >
         <div className="container mx-auto px-6 flex items-center justify-between">
           <Link to="/" onClick={() => isHome && window.scrollTo({ top: 0, behavior: 'smooth' })} className="z-50 relative hover:opacity-80 transition-opacity">
-            <Logo className="h-14 md:h-16" variant={isHome && !isScrolled && !isMobileMenuOpen ? 'light' : 'dark'} />
+            <Logo className="h-16 md:h-20" variant="dark" />
           </Link>
 
           <nav className="hidden md:flex items-center gap-8 text-sm font-medium">
             {navLinks.map((link) => {
               const isActive = activeSection === link.href.split('#')[1];
-              const baseTextColor = isHome && !isScrolled ? 'text-white/90 hover:text-white' : 'text-gray-600 hover:text-brand-600';
-              const activeTextColor = isHome && !isScrolled ? 'text-white font-bold' : 'text-brand-600 font-bold';
+              const baseTextColor = 'text-gray-600 hover:text-brand-600';
+              const activeTextColor = 'text-brand-600 font-bold';
 
               return isHome ? (
                 <a key={link.label} href={link.href} className={`transition-colors relative py-1 ${isActive ? activeTextColor : baseTextColor}`}>
                   {link.label}
-                  {isActive && <span className={`absolute bottom-0 left-0 w-full h-1 rounded-full animate-fade-in ${isHome && !isScrolled ? 'bg-white' : 'bg-brand-600'}`}></span>}
+                  {isActive && <span className={`absolute bottom-0 left-0 w-full h-1 rounded-full animate-fade-in bg-brand-600`}></span>}
                 </a>
               ) : (
                 <Link key={link.label} to={link.href} className={`transition-colors py-1 ${baseTextColor}`}>
@@ -341,15 +341,15 @@ export const Header: React.FC<{
           </nav>
 
           <div className="hidden md:flex items-center gap-4">
-            <button onClick={() => setIsSearchOpen(true)} className={`p-2 transition-colors ${isHome && !isScrolled ? 'text-white/90 hover:text-white' : 'text-gray-500 hover:text-brand-600'}`}><Search size={20} /></button>
-            <button onClick={() => setIsTrackModalOpen(true)} className={`flex items-center gap-2 px-4 py-2 rounded-full border transition-all text-xs font-semibold ${isHome && !isScrolled ? 'border-white/30 bg-white/10 text-white hover:bg-white/20' : 'border-gray-200 bg-white/50 text-brand-900 hover:bg-white hover:shadow-md'}`}>Track Order</button>
-            <button onClick={() => setIsCartOpen(true)} className={`relative p-2 transition-colors ${isHome && !isScrolled ? 'text-white/90 hover:text-white' : 'text-gray-800 hover:text-brand-600'}`}>
+            <button onClick={() => setIsSearchOpen(true)} className={`p-2 transition-colors text-gray-500 hover:text-brand-600`}><Search size={20} /></button>
+            <button onClick={() => setIsTrackModalOpen(true)} className={`flex items-center gap-2 px-4 py-2 rounded-full border transition-all text-xs font-semibold border-gray-200 bg-white/50 text-brand-900 hover:bg-white hover:shadow-md`}>Track Order</button>
+            <button onClick={() => setIsCartOpen(true)} className={`relative p-2 transition-colors text-gray-800 hover:text-brand-600`}>
               <ShoppingBag size={20} />
               {cartItems.length > 0 && <span className="absolute top-0 right-0 w-4 h-4 bg-brand-500 text-white text-[10px] font-bold rounded-full flex items-center justify-center animate-zoom-in">{cartItems.length}</span>}
             </button>
           </div>
 
-          <button className={`md:hidden p-2 z-50 relative ${isHome && !isScrolled && !isMobileMenuOpen ? 'text-white' : 'text-gray-800'}`} onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}>
+          <button className={`md:hidden p-2 z-50 relative text-gray-800`} onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}>
             {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
           </button>
 

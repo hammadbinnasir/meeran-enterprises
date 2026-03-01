@@ -3,8 +3,8 @@ import { Product } from '../types';
 export const products: Product[] = [
     {
         id: 'p-lnp-new',
-        name: 'LNP-700 Extended Tactical Knee & Shin System',
-        description: 'Engineered for maximum leg coverage, the LNP-700 provides seamless knee-to-shin protection without compromising mobility. Featuring an articulated dual-pivot system and high-density polymer plating, it ensures superior impact resistance against blunt force trauma and debris. The quick-release buckle system allows for rapid deployment in critical situations.',
+        name: 'RM-110 Extended Tactical Knee & Shin Guard',
+        description: 'Engineered for maximum leg coverage, the RM-110 provides seamless knee-to-shin protection without compromising mobility. Featuring an articulated dual-pivot system and high-density polymer plating, it ensures superior impact resistance against blunt force trauma and debris. The quick-release buckle system allows for rapid deployment in critical situations.',
         images: [
             '/assets/images/LNP_1.jpg',
             '/assets/images/LNP_2.jpg',
@@ -23,9 +23,15 @@ export const products: Product[] = [
             'Anti-slip silicone grip lining',
             'Reinforced stitching at stress points',
             'Compatible with tactical pants and uniforms',
-            'Model: LNP-700 / Series-X'
+            'Model: RM-110 / Series-X'
         ],
-        specs: { material: 'Impact Polymer / 1000D Nylon', weight: '320g', certification: 'EN1621-1:2012', impactRating: 'Level 2' },
+        specs: {
+            material: 'Copolymer Polypropylene (CP), Polypropylene (PP), Ethylene-vinyl acetate (EVA)',
+            weight: '615 g',
+            color: 'Enhanced Black',
+            sport: 'Snowboarding, Cycling, Skateboarding',
+            impactRating: 'Level 2'
+        },
         status: 'In Stock'
     },
     {
@@ -45,7 +51,7 @@ export const products: Product[] = [
             'Quiet-strap technology for stealth operations',
             'Moisture-wicking mesh interior'
         ],
-        specs: { material: 'Polymer / EVA / Nylon', weight: '450g (Set)', certification: 'Tactical Standard', impactRating: 'High' },
+        specs: { material: 'Polypropylene / EVA', weight: '450g (Set)', color: 'Black', impactRating: 'High' },
         status: 'In Progress'
     },
     {
@@ -60,12 +66,12 @@ export const products: Product[] = [
         ],
         features: [
             'Kid-specific ergonomic design',
-            'High-density polyethylene (HDPE) caps',
+            'Copolymer Polypropylene & Polypropylene protective caps',
             'Breathable sandwich mesh for comfort',
             'Adjustable hook-and-loop security straps',
             'Full 6-piece set (Knee, Elbow, Wrist)'
         ],
-        specs: { material: 'HDPE / Mesh / Polyester', weight: '380g (Full Set)', certification: 'CE Junior', impactRating: 'Impact Resistant' },
+        specs: { material: 'Copolymer Polypropylene, Polypropylene', weight: '272g', color: 'Black', dimensions: '21*21*10 cm', sport: 'Cycling, Skateboarding, Ice Skating, Snowboarding', impactRating: 'Impact Resistant' },
         status: 'Out of Stock'
     },
     {
@@ -86,7 +92,7 @@ export const products: Product[] = [
             'Non-slip interior surface',
             'Rapid air-flow cooling design'
         ],
-        specs: { material: 'Ballistic Nylon / High-Density Foam', weight: '290g', certification: 'Street-Pro Grade', impactRating: 'Elite' },
+        specs: { material: 'Polypropylene (PP), Ethylene Vinyl Acetate (EVA)', weight: '550g', impactRating: 'Elite' },
         status: 'Coming Soon'
     },
     {
@@ -106,7 +112,7 @@ export const products: Product[] = [
             'Waterproof exterior for easy washing',
             'Extra-wide padding for joint stability'
         ],
-        specs: { material: 'Gel Core / PVC Shell', weight: '210g', certification: 'Home & Professional', impactRating: 'Comfort Grade' },
+        specs: { material: 'Gel, PVC and EVA', weight: '307g', color: 'Black', impactRating: 'Comfort Grade' },
         status: 'In Stock'
     },
     {
@@ -126,7 +132,7 @@ export const products: Product[] = [
             'Articulated joints for natural riding posture',
             'Reflective elements for night visibility'
         ],
-        specs: { material: 'Bio-Foam / Polypropylene', weight: '550g (Set)', certification: 'CE EN1621', impactRating: 'Track Grade' },
+        specs: { material: 'Copolymer Polypropylene (CP), Polypropylene (PP), Ethylene Vinyl Acetate (EVA)', weight: '700g', color: 'Black', impactRating: 'Track Grade' },
         status: 'Coming Soon'
     },
     {
@@ -147,7 +153,7 @@ export const products: Product[] = [
             'Extra-wide shin coverage',
             'Antibacterial interior fabric'
         ],
-        specs: { material: 'Reinforced Polymer / Mesh', weight: '260g', certification: 'Tactical Class 1', impactRating: 'Collision Proof' },
+        specs: { material: 'Copolymer Polypropylene (CP), Polypropylene (PP), Ethylene-vinyl acetate (EVA)', weight: '325 g', color: 'Black', dimensions: '5*6 inches', impactRating: 'Collision Proof' },
         status: 'In Stock'
     },
     {
@@ -168,7 +174,7 @@ export const products: Product[] = [
             'High-grip padding for bike control',
             'Reinforced shin extension'
         ],
-        specs: { material: 'Advanced Composite / Nylon', weight: '420g', certification: 'Moto-X Standard', impactRating: 'X-Treme' },
+        specs: { material: 'Copolymer Polypropylene', weight: '1000g', impactRating: 'X-Treme' },
         status: 'In Progress'
     },
     {
@@ -189,7 +195,7 @@ export const products: Product[] = [
             'Quick-dry interior for heavy sweat',
             'Compact storage integration'
         ],
-        specs: { material: 'Multi-Polymer / Synthetic Fiber', weight: '340g', certification: 'Multi-Sport Standard', impactRating: 'Universal' },
+        specs: { material: 'Composition of Copolymer Polypropylene (CoPP), EVA, TPU', weight: '500g', impactRating: 'Universal' },
         status: 'Coming Soon'
     },
     {
@@ -210,7 +216,7 @@ export const products: Product[] = [
             'Sold as a pair',
             'Mfg# DKP-B'
         ],
-        specs: { material: 'Carbon Fiber Hybrid', weight: '180g', certification: 'ISO 9001:2008', impactRating: 'Level 2' },
+        specs: { material: 'Carbon Fiber Hybrid', weight: '180g', impactRating: 'Level 2' },
         status: 'In Stock'
     },
     {
@@ -228,12 +234,12 @@ export const products: Product[] = [
             'Designed specifically for riot control and high-risk inmate movement',
             'Model: Defender Series'
         ],
-        specs: { material: 'Leather / Carbon-Composite', weight: '150g', certification: 'CE EN1621', impactRating: 'Level 1' },
+        specs: { material: 'Leather / PPU', weight: '250g', color: 'Black', impactRating: 'Level 1' },
         status: 'In Stock'
     },
     {
         id: 'p4',
-        name: 'Shell Knee Pads',
+        name: 'Shell Knee, Elbow and Wrist Protector',
         description: 'Professional-grade protection for high-intensity operations. These shell knee pads are engineered for maximum durability and comfort in all-terrain environments. Featuring a rugged high-impact shell and non-slip surfaces, they provide reliable safety for tactical personnel and law enforcement.',
         images: [
             '/assets/images/short-kneepad_1.jpg',
@@ -253,7 +259,7 @@ export const products: Product[] = [
             'Reinforced stitching for extreme durability',
             'Model: SKP-95 / Pro-Shell'
         ],
-        specs: { material: 'Polymer / Nylon', weight: '220g', certification: 'CE Level 1', impactRating: 'Tactical Grade' },
+        specs: { material: 'Composition of Copolymer Polypropylene (CoPP) and EVA', weight: '500g', impactRating: 'Tactical Grade' },
         status: 'Out of Stock'
     },
     {
@@ -277,12 +283,12 @@ export const products: Product[] = [
             'Advanced airflow channels for temperature regulation',
             'Quick-adjust security strap system'
         ],
-        specs: { material: 'Soft EVA / High-Strength Polymer', weight: '280g', certification: 'EN1621-1 Level 1', impactRating: 'Pro-Flex Grade' },
+        specs: { material: 'Polyester Thermoplastic Polyurethane (TPU), Ethylene Vinyl Acetate (EVA)', weight: '1150g', impactRating: 'Pro-Flex Grade' },
         status: 'Coming Soon'
     },
     {
         id: 'p-vanguard-system',
-        name: 'Vanguard Road-Warrior Shin & Knee System',
+        name: 'Vanguard Road-Warrior Shin & Knee Armour',
         description: 'Engineered for the modern road warrior, the Vanguard system provides comprehensive lower-leg protection for high-speed motorcycling and extreme off-road terrain. Featuring a reinforced dual-hinge design and extended shin coverage, it ensures stability and impact resistance without sacrificing the agility required for performance riding.',
         images: [
             '/products/p10_1.jpg',
@@ -300,7 +306,71 @@ export const products: Product[] = [
             'Adjustable triple-strap security for a custom fit',
             'Breathable mesh lining for long-distance comfort'
         ],
-        specs: { material: 'High-Impact Polymer / Soft Foam Core', weight: '420g', certification: 'CE EN1621-1', impactRating: 'Elite Road Grade' },
+        specs: { material: 'Copolymer Polypropylene (CP), Polypropylene (PP), Ethylene-vinyl acetate (EVA)', weight: '650g', impactRating: 'Elite Road Grade' },
         status: 'In Progress'
+    },
+    {
+        id: 'p-rm-6in1-set',
+        name: 'RM 6-in-1 Guard Set',
+        description: 'Adult/Kids Knee Pads Elbow Pads Wrist Guards 6-in-1 RM Protective Gear Set for Inline Roller Skating, Skateboarding, Scooter, BMX, etc. Provides full protection while making the protected part comfortable and breathable.',
+        images: [
+            '/products/p11_1.jpg',
+            '/products/p11_2.jpg',
+            '/products/p11_3.jpg'
+        ],
+        features: [
+            'Made of durable PP shell and breathable Nylon sleeves',
+            'Adjustable elastic straps to stretch with your movement',
+            'Durable velcro to keep it in place without slipping off',
+            'Ideal for Roller Skating, Skateboarding, Inline Skating, Cycling, Hover Boards, Penny Board, Scooter and more',
+            'Pair of knee pads, elbow pads, and wrist guards'
+        ],
+        specs: { material: 'Nylon, PP Shell', weight: '0.4 kg', sport: 'Cycling, Skateboarding', impactRating: 'Impact Protection' },
+        status: 'In Stock'
+    },
+    {
+        id: 'p-rm-3in1-set',
+        name: 'RM 3-in-1 Guard Set',
+        description: 'Kids/Adult/Youth Knee and Elbow Pads with Wrist Guards RM Protective Gear Set for Skateboarding, Cycling, BMX Bike, Scooter, Skating, Riding. Made of high-quality EVA material and PP shell.',
+        images: [
+            '/products/p12_1.jpg',
+            '/products/p12_2.jpg',
+            '/products/p12_3.jpg',
+            '/products/p12_4.jpg',
+            '/products/p12_5.jpg',
+            '/products/p12_6.jpg'
+        ],
+        features: [
+            'Impact-resistant PP shell',
+            'Generously padded with thick 9mm EVA material',
+            'Skin-friendly fabric and breathable elastic cloth',
+            'Provides comfort without restricting movement',
+            'Comes complete with 2 elbow pads, 2 knee pads, and 2 wrist guards'
+        ],
+        specs: { material: 'Ethylene Vinyl Acetate (EVA), Plastic, Polyester, Polypropylene (PP)', weight: '0.28 kg', sport: 'Cycling, Skateboarding', impactRating: 'Superior Protection' },
+        status: 'In Stock'
+    },
+    {
+        id: 'p-rm-skate-set',
+        name: 'RM Skate Guard Set',
+        description: 'Adult/Youth Knee Pads and Elbow Pads Set, RM Wrist Guards Skateboarding Pads for Roller Skating. Perfect for numerous activities like skateboarding, roller skating, cycling, scootering, biking, longboarding, and more.',
+        images: [
+            '/products/p13_1.jpg',
+            '/products/p13_2.jpg',
+            '/products/p13_3.jpg',
+            '/products/p13_4.jpg',
+            '/products/p13_5.jpg',
+            '/products/p13_6.jpg',
+            '/products/p13_7.jpg'
+        ],
+        features: [
+            'Includes 2 elbow pads, 2 knee pads, 2 wrist pads, and a dedicated storage bag',
+            'Impact-resistant PP shell with thick 9mm EVA material for exceptional shock absorption',
+            'Skin-friendly fabric with breathable elastic cloth on the back',
+            'Adjustable with several elastic straps for a customizable fit',
+            'Unparalleled safety for the knee, elbow, and wrist'
+        ],
+        specs: { material: 'Polypropylene (PP), EVA', weight: '0.59 kg', sport: 'Skateboarding', color: 'Black', impactRating: 'Heavy Duty' },
+        status: 'In Stock'
     }
 ];

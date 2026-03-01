@@ -20,11 +20,11 @@ const ProductCard: React.FC<{
   };
 
   return (
-    <div className="group bg-white rounded-2xl shadow-airy hover:shadow-float transition-all duration-500 overflow-hidden border border-white hover:border-gray-100 flex flex-col h-full">
-      <div
-        className="relative aspect-square md:aspect-[16/10] bg-gray-50 overflow-hidden cursor-pointer p-4 sm:p-6"
-        onClick={() => navigate(`/product/${product.id}`)}
-      >
+    <div
+      className="group bg-white rounded-2xl shadow-airy hover:shadow-float transition-all duration-500 overflow-hidden border border-white hover:border-gray-100 flex flex-col h-full cursor-pointer"
+      onClick={() => navigate(`/product/${product.id}`)}
+    >
+      <div className="relative aspect-square md:aspect-[16/10] bg-gray-50 overflow-hidden p-4 sm:p-6">
         <img
           src={product.images[0]}
           alt={product.name}
@@ -40,13 +40,10 @@ const ProductCard: React.FC<{
         </div>
 
         {product.status && (
-          <div className={`absolute top-3 left-3 px-2 py-1 rounded-md text-[10px] font-bold tracking-wider uppercase pointer-events-none shadow-sm z-10 backdrop-blur-md ${product.status === 'In Stock'
-            ? 'bg-green-500/90 text-white'
-            : product.status === 'Out of Stock'
-              ? 'bg-red-500/90 text-white'
-              : product.status === 'Coming Soon'
-                ? 'bg-blue-500/90 text-white'
-                : 'bg-amber-500/90 text-white'
+          <div className={`absolute top-3 left-3 px-2 py-1 rounded-md text-[10px] font-bold tracking-wider uppercase pointer-events-none shadow-sm z-10 backdrop-blur-md ${product.status === 'In Stock' ? 'bg-green-500/90 text-white' :
+            product.status === 'Coming Soon' ? 'bg-amber-500/90 text-white' :
+              product.status === 'In Progress' ? 'bg-blue-500/90 text-white' :
+                'bg-gray-500/90 text-white'
             }`}>
             {product.status}
           </div>

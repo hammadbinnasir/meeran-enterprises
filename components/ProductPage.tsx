@@ -44,10 +44,10 @@ export const ProductPage: React.FC<{ onAddToCart: (p: Product) => void }> = ({ o
     };
 
     return (
-        <div className="min-h-screen bg-white">
-            {/* Navigation Header */}
-            <div className="sticky top-20 z-40 bg-white/80 backdrop-blur-md border-b border-gray-100 px-6 py-4">
-                <div className="container mx-auto flex items-center justify-between">
+        <div className="min-h-screen bg-white pt-36">
+            <main className="container mx-auto px-6 py-8">
+                {/* Back button + Breadcrumb */}
+                <div className="flex items-center justify-between mb-10">
                     <button
                         onClick={() => navigate('/')}
                         className="flex items-center gap-2 text-gray-600 hover:text-brand-900 transition-colors font-medium group"
@@ -63,9 +63,6 @@ export const ProductPage: React.FC<{ onAddToCart: (p: Product) => void }> = ({ o
                         <span className="text-gray-900 font-medium truncate max-w-[200px]">{product.name}</span>
                     </div>
                 </div>
-            </div>
-
-            <main className="container mx-auto px-6 py-12">
                 <div className="flex flex-col lg:flex-row gap-16">
                     {/* Image Gallery */}
                     <div className="w-full lg:w-3/5">
@@ -118,9 +115,13 @@ export const ProductPage: React.FC<{ onAddToCart: (p: Product) => void }> = ({ o
                                 <span className="px-3 py-1 bg-brand-50 text-brand-900 text-[10px] font-black uppercase tracking-[0.2em] rounded-full">
                                     Elite Grade
                                 </span>
-                                <span className="flex items-center gap-1 text-[10px] font-bold text-green-600 uppercase tracking-widest">
+                                <span className={`flex items-center gap-1 text-[10px] font-bold uppercase tracking-widest ${product.status === 'In Stock' ? 'text-green-600' :
+                                        product.status === 'Coming Soon' ? 'text-amber-500' :
+                                            product.status === 'In Progress' ? 'text-blue-500' :
+                                                'text-gray-500'
+                                    }`}>
                                     <ShieldCheck size={14} />
-                                    In Stock
+                                    {product.status || 'Out of Stock'}
                                 </span>
                             </div>
 
