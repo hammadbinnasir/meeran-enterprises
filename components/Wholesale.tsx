@@ -37,29 +37,27 @@ export const Wholesale: React.FC = () => {
     const formData = new FormData(e.currentTarget);
     const data = Object.fromEntries(formData.entries());
 
-    const subject = encodeURIComponent("Distributor Application - Raza Meeran Enterprises");
-    const body = encodeURIComponent(
-      `Distributor Application Details:\n\n` +
-      `Company Name: ${data.companyName}\n` +
-      `Tax ID / VAT: ${data.taxId}\n` +
-      `Contact Name: ${data.contactName}\n` +
-      `Email: ${data.email}\n` +
-      `Phone: ${data.phone}\n` +
-      `Website: ${data.website || 'N/A'}\n` +
-      `Region: ${data.targetRegion}\n` +
-      `Business Model: ${data.businessModel}\n\n` +
-      `Company Profile & Volume:\n${data.companyProfile}`
-    );
-
-    window.location.href = `mailto:info@meeranenterprises.com?subject=${subject}&body=${body}`;
-
-    setTimeout(() => {
+    emailjs.send(
+      'service_ua0ajq1',
+      'template_62vacwq',
+      {
+        user_name: data.contactName,
+        user_email: data.email,
+        user_region: data.targetRegion,
+        unit_range: data.businessModel || 'Wholesale Application',
+        message: `Distributor Application Details:\nCompany Name: ${data.companyName}\nTax ID / VAT: ${data.taxId}\nPhone: ${data.phone}\nWebsite: ${data.website || 'N/A'}\n\nCompany Profile & Volume:\n${data.companyProfile}`
+      },
+      '4jGeVesKp7OBWE3Sr'
+    ).then(() => {
       setSubmitStatus('success');
       setTimeout(() => {
         setShowApplication(false);
         setSubmitStatus('idle');
       }, 3000);
-    }, 1500);
+    }).catch(err => {
+      console.error(err);
+      setSubmitStatus('error');
+    });
   };
 
   return (

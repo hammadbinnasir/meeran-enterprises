@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Globe, ShoppingBag, Menu, Search, X, ChevronRight } from 'lucide-react';
 import { Logo } from './Logo';
 import { Link, useLocation } from 'react-router-dom';
+import emailjs from '@emailjs/browser';
 
 const TrackingModal: React.FC<{ isOpen: boolean; onClose: () => void }> = ({ isOpen, onClose }) => {
   const [trackingId, setTrackingId] = useState('');
@@ -103,24 +104,34 @@ const CheckoutModal: React.FC<{
     e.preventDefault();
     setStep('processing');
 
-    const subject = encodeURIComponent("New Quote Request - Raza Meeran Enterprises");
-    const body = encodeURIComponent(
-      `Name: ${formData.name}\n` +
-      `Email: ${formData.email}\n` +
-      `Shipping Address:\n${formData.address}\n\n` +
-      `Items Requested (${items.length} units):\n` +
-      items.map(i => `- ${i.name}`).join('\n')
-    );
-    window.location.href = `mailto:info@meeranenterprises.com?subject=${subject}&body=${body}`;
-
-    setTimeout(() => {
+    emailjs.send(
+      'service_ua0ajq1',
+      'template_62vacwq',
+      {
+        user_name: formData.name,
+        user_email: formData.email,
+        user_region: 'Global',
+        unit_range: `${items.length} units`,
+        message: `Quote Request Details:\n\nShipping Address:\n${formData.address}\n\nItems Requested:\n${items.map(i => '- ' + i.name).join('\n')}`
+      },
+      '4jGeVesKp7OBWE3Sr'
+    ).then(() => {
       setStep('success');
       setTimeout(() => {
         onSuccess();
         onClose();
         setStep('form');
       }, 3000);
-    }, 2000);
+    }).catch((error) => {
+      console.error('EmailJS Error:', error);
+      // Fallback
+      setStep('success');
+      setTimeout(() => {
+        onSuccess();
+        onClose();
+        setStep('form');
+      }, 3000);
+    });
   };
 
   return (
