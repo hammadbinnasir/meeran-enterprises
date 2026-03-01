@@ -102,6 +102,17 @@ const CheckoutModal: React.FC<{
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     setStep('processing');
+
+    const subject = encodeURIComponent("New Quote Request - Raza Meeran Enterprises");
+    const body = encodeURIComponent(
+      `Name: ${formData.name}\n` +
+      `Email: ${formData.email}\n` +
+      `Shipping Address:\n${formData.address}\n\n` +
+      `Items Requested (${items.length} units):\n` +
+      items.map(i => `- ${i.name}`).join('\n')
+    );
+    window.location.href = `mailto:info@meeranenterprises.com?subject=${subject}&body=${body}`;
+
     setTimeout(() => {
       setStep('success');
       setTimeout(() => {

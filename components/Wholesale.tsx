@@ -26,16 +26,40 @@ export const Wholesale: React.FC = () => {
           console.error('EmailJS Error:', error);
           setSubmitStatus('error');
         });
-    } else {
-      // Fallback for application modal or other forms
-      setTimeout(() => {
-        setSubmitStatus('success');
-        setTimeout(() => {
-          setShowApplication(false);
-          setSubmitStatus('idle');
-        }, 3000);
-      }, 1500);
     }
+  };
+
+  const handleAppSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    setSubmitStatus('submitting');
+
+    // Extract data
+    const formData = new FormData(e.currentTarget);
+    const data = Object.fromEntries(formData.entries());
+
+    const subject = encodeURIComponent("Distributor Application - Raza Meeran Enterprises");
+    const body = encodeURIComponent(
+      `Distributor Application Details:\n\n` +
+      `Company Name: ${data.companyName}\n` +
+      `Tax ID / VAT: ${data.taxId}\n` +
+      `Contact Name: ${data.contactName}\n` +
+      `Email: ${data.email}\n` +
+      `Phone: ${data.phone}\n` +
+      `Website: ${data.website || 'N/A'}\n` +
+      `Region: ${data.targetRegion}\n` +
+      `Business Model: ${data.businessModel}\n\n` +
+      `Company Profile & Volume:\n${data.companyProfile}`
+    );
+
+    window.location.href = `mailto:info@meeranenterprises.com?subject=${subject}&body=${body}`;
+
+    setTimeout(() => {
+      setSubmitStatus('success');
+      setTimeout(() => {
+        setShowApplication(false);
+        setSubmitStatus('idle');
+      }, 3000);
+    }, 1500);
   };
 
   return (
@@ -179,7 +203,7 @@ export const Wholesale: React.FC = () => {
                   </button>
                 </div>
               ) : (
-                <form onSubmit={handleSubmit} className="space-y-8">
+                <form onSubmit={handleAppSubmit} className="space-y-8">
 
                   {/* Section 1: Corporate Identity */}
                   <div className="space-y-5 bg-white p-6 rounded-2xl shadow-sm border border-gray-100">
@@ -193,7 +217,7 @@ export const Wholesale: React.FC = () => {
                         <label className="block text-xs font-semibold text-brand-900 mb-1.5 ml-1">Company Name *</label>
                         <div className="relative">
                           <Building2 className="absolute left-3.5 top-3.5 text-gray-400 group-focus-within:text-brand-600 transition-colors" size={18} />
-                          <input required type="text" placeholder="Legal Entity Name"
+                          <input name="companyName" required type="text" placeholder="Legal Entity Name"
                             className="w-full bg-white border border-gray-200 rounded-xl pl-10 pr-4 py-3 text-sm font-medium text-brand-900 placeholder-gray-400 focus:border-brand-600 focus:ring-4 focus:ring-brand-500/10 focus:outline-none transition-all shadow-sm"
                           />
                         </div>
@@ -203,7 +227,7 @@ export const Wholesale: React.FC = () => {
                         <label className="block text-xs font-semibold text-brand-900 mb-1.5 ml-1">Tax ID / VAT *</label>
                         <div className="relative">
                           <CreditCard className="absolute left-3.5 top-3.5 text-gray-400 group-focus-within:text-brand-600 transition-colors" size={18} />
-                          <input required type="text" placeholder="Registration Number"
+                          <input name="taxId" required type="text" placeholder="Registration Number"
                             className="w-full bg-white border border-gray-200 rounded-xl pl-10 pr-4 py-3 text-sm font-medium text-brand-900 placeholder-gray-400 focus:border-brand-600 focus:ring-4 focus:ring-brand-500/10 focus:outline-none transition-all shadow-sm"
                           />
                         </div>
@@ -223,7 +247,7 @@ export const Wholesale: React.FC = () => {
                         <label className="block text-xs font-semibold text-brand-900 mb-1.5 ml-1">Full Name *</label>
                         <div className="relative">
                           <User className="absolute left-3.5 top-3.5 text-gray-400 group-focus-within:text-brand-600 transition-colors" size={18} />
-                          <input required type="text" placeholder="Primary Contact"
+                          <input name="contactName" required type="text" placeholder="Primary Contact"
                             className="w-full bg-white border border-gray-200 rounded-xl pl-10 pr-4 py-3 text-sm font-medium text-brand-900 placeholder-gray-400 focus:border-brand-600 focus:ring-4 focus:ring-brand-500/10 focus:outline-none transition-all shadow-sm"
                           />
                         </div>
@@ -233,7 +257,7 @@ export const Wholesale: React.FC = () => {
                         <label className="block text-xs font-semibold text-brand-900 mb-1.5 ml-1">Business Email *</label>
                         <div className="relative">
                           <Mail className="absolute left-3.5 top-3.5 text-gray-400 group-focus-within:text-brand-600 transition-colors" size={18} />
-                          <input required type="email" placeholder="name@company.com"
+                          <input name="email" required type="email" placeholder="name@company.com"
                             className="w-full bg-white border border-gray-200 rounded-xl pl-10 pr-4 py-3 text-sm font-medium text-brand-900 placeholder-gray-400 focus:border-brand-600 focus:ring-4 focus:ring-brand-500/10 focus:outline-none transition-all shadow-sm"
                           />
                         </div>
@@ -243,7 +267,7 @@ export const Wholesale: React.FC = () => {
                         <label className="block text-xs font-semibold text-brand-900 mb-1.5 ml-1">Phone Number *</label>
                         <div className="relative">
                           <Phone className="absolute left-3.5 top-3.5 text-gray-400 group-focus-within:text-brand-600 transition-colors" size={18} />
-                          <input required type="tel" placeholder="+1 (555) 000-0000"
+                          <input name="phone" required type="tel" placeholder="+1 (555) 000-0000"
                             className="w-full bg-white border border-gray-200 rounded-xl pl-10 pr-4 py-3 text-sm font-medium text-brand-900 placeholder-gray-400 focus:border-brand-600 focus:ring-4 focus:ring-brand-500/10 focus:outline-none transition-all shadow-sm"
                           />
                         </div>
@@ -253,7 +277,7 @@ export const Wholesale: React.FC = () => {
                         <label className="block text-xs font-semibold text-brand-900 mb-1.5 ml-1">Website URL</label>
                         <div className="relative">
                           <Globe className="absolute left-3.5 top-3.5 text-gray-400 group-focus-within:text-brand-600 transition-colors" size={18} />
-                          <input type="url" placeholder="https://www.yourcompany.com"
+                          <input name="website" type="url" placeholder="https://www.yourcompany.com"
                             className="w-full bg-white border border-gray-200 rounded-xl pl-10 pr-4 py-3 text-sm font-medium text-brand-900 placeholder-gray-400 focus:border-brand-600 focus:ring-4 focus:ring-brand-500/10 focus:outline-none transition-all shadow-sm"
                           />
                         </div>
@@ -272,7 +296,7 @@ export const Wholesale: React.FC = () => {
                       <div className="relative group">
                         <label className="block text-xs font-semibold text-brand-900 mb-1.5 ml-1">Target Region *</label>
                         <div className="relative">
-                          <select required className="w-full bg-white border border-gray-200 rounded-xl px-4 py-3 text-sm font-medium text-brand-900 focus:border-brand-600 focus:ring-4 focus:ring-brand-500/10 focus:outline-none transition-all appearance-none cursor-pointer shadow-sm">
+                          <select name="targetRegion" required className="w-full bg-white border border-gray-200 rounded-xl px-4 py-3 text-sm font-medium text-brand-900 focus:border-brand-600 focus:ring-4 focus:ring-brand-500/10 focus:outline-none transition-all appearance-none cursor-pointer shadow-sm">
                             <option value="">Select Primary Market</option>
                             <option value="NA">North America</option>
                             <option value="EU">Europe</option>
@@ -290,7 +314,7 @@ export const Wholesale: React.FC = () => {
                       <div className="relative group">
                         <label className="block text-xs font-semibold text-brand-900 mb-1.5 ml-1">Business Model *</label>
                         <div className="relative">
-                          <select required className="w-full bg-white border border-gray-200 rounded-xl px-4 py-3 text-sm font-medium text-brand-900 focus:border-brand-600 focus:ring-4 focus:ring-brand-500/10 focus:outline-none transition-all appearance-none cursor-pointer shadow-sm">
+                          <select name="businessModel" required className="w-full bg-white border border-gray-200 rounded-xl px-4 py-3 text-sm font-medium text-brand-900 focus:border-brand-600 focus:ring-4 focus:ring-brand-500/10 focus:outline-none transition-all appearance-none cursor-pointer shadow-sm">
                             <option value="">Select Type</option>
                             <option value="retail">Physical Retailer</option>
                             <option value="ecommerce">E-Commerce Specialist</option>
@@ -308,7 +332,7 @@ export const Wholesale: React.FC = () => {
                       <label className="block text-xs font-semibold text-brand-900 mb-1.5 ml-1">Company Profile & Projected Volume</label>
                       <div className="relative">
                         <FileText className="absolute left-3.5 top-3.5 text-gray-400 group-focus-within:text-brand-600 transition-colors" size={18} />
-                        <textarea required rows={3} placeholder="Briefly describe your distribution channels and estimated quarterly volume..."
+                        <textarea name="companyProfile" required rows={3} placeholder="Briefly describe your distribution channels and estimated quarterly volume..."
                           className="w-full bg-white border border-gray-200 rounded-xl pl-10 pr-4 py-3 text-sm font-medium text-brand-900 placeholder-gray-400 focus:border-brand-600 focus:ring-4 focus:ring-brand-500/10 focus:outline-none transition-all resize-none shadow-sm"
                         ></textarea>
                       </div>
