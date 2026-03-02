@@ -199,9 +199,9 @@ export const products: Product[] = [
         status: 'Coming Soon'
     },
     {
-        id: 'p-model-16',
-        name: 'Model 16: Professional Motocross Protection Set',
-        description: 'The Model 16 Professional Motocross Protection Set is engineered for high-intensity action sports including motorcycling, mountain biking, and extreme gliding. Featuring a high-impact PP plastic outer shell and a dual-layer shock-absorbing foam interior, these guards provide elite protection against impacts and abrasions while maintaining a low-profile ergonomic fit.',
+        id: 'p-rm-16',
+        name: 'RM-16 Motocross Protection Set',
+        description: 'The RM-16 Motocross Protection Set is engineered for high-intensity action sports including motorcycling, mountain biking, and extreme gliding. Featuring a high-impact PP plastic outer shell and a dual-layer shock-absorbing foam interior, these guards provide elite protection against impacts and abrasions while maintaining a low-profile ergonomic fit.',
         images: [
             '/products/p16_1.jpg',
             '/products/p16_2.jpg',
