@@ -199,24 +199,28 @@ export const products: Product[] = [
         status: 'Coming Soon'
     },
     {
-        id: 'p1',
-        name: 'Hard Shell Tactical Knee Pads',
-        description: 'Experience top-tier comfort and performance with the Tactical Pro DKP Knee Pads. Designed to give full range of motion in extreme tactical situations. Molded with non-slip, flexible thermoplastic polyurethane (TPU) plates, these knee pads deflect blows from flying debris and provide protection on hard surfaces. Made with high tenacity, air-textured professional-grade synthetic materials, these knee pads offer superior tear and abrasion resistance. They feature dual hook and loop straps with an ergonomic curved form and composed of closed cell foam that ensures excellent cushioning and shock protection. These knee pads are assured not to absorb and hold water.',
-        images: ['/assets/images/elite_pro_guard_v3.avif'],
-        features: [
-            'Hard shell polyurethane thermoplastic non-slip caps for added durability',
-            'Reinforced foam padding for optimal shock absorption and comfort',
-            'Two adjustable elastic straps with Velcro and D-rings for secure and custom fit',
-            'High tenacity, air-textured professional synthetic outer materials for superior abrasion and tear resistance',
-            'Non-reflective tone-on-tone grommets with a dull finish for a sleek look',
-            'Ergonomically curved form for enhanced comfort',
-            'Interior name tags for personal identification',
-            'Easily washable for maintenance',
-            'One size fits all for convenience',
-            'Sold as a pair',
-            'Mfg# DKP-B'
+        id: 'p-model-16',
+        name: 'Model 16: Professional Motocross Protection Set',
+        description: 'The Model 16 Professional Motocross Protection Set is engineered for high-intensity action sports including motorcycling, mountain biking, and extreme gliding. Featuring a high-impact PP plastic outer shell and a dual-layer shock-absorbing foam interior, these guards provide elite protection against impacts and abrasions while maintaining a low-profile ergonomic fit.',
+        images: [
+            '/products/p16_1.jpg',
+            '/products/p16_2.jpg',
+            '/products/p16_3.jpg',
+            '/products/p16_4.jpg',
+            '/products/p16_5.jpg'
         ],
-        specs: { material: 'Carbon Fiber Hybrid', weight: '180g', impactRating: 'Level 2' },
+        features: [
+            'High-impact PP (polypropylene) outer shell for maximum durability',
+            '3-layer protective architecture with integrated shock absorption',
+            '10mm foam core with a 15mm breathable padded lining',
+            'Dual-hinge articulation system for natural movement and flexibility',
+            'Adjustable elastic straps with secure hook-and-loop closures',
+            'Low-profile design, suitable for wearing over or under clothing',
+            'Versatile protection for motocross, MTB, skating, and BMX',
+            'Ergonomic fit matching limb geometry for all-day comfort',
+            'Reinforced stitching at high-stress points for long-lasting use'
+        ],
+        specs: { material: 'High-impact PP Shell, EVA Foam, Polyester Lining', weight: '450g (Set)', color: 'Matte Black', sport: 'Motocross / Action Sports', impactRating: 'Tactical Grade' },
         status: 'In Stock'
     },
     {
