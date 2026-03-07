@@ -336,7 +336,7 @@ export const Header: React.FC<{
   return (
     <>
       <header
-        className={`fixed top-0 left-0 right-0 z-[500] transition-all duration-300 ease-in-out bg-white/90 backdrop-blur-md shadow-sm py-4`}
+        className={`fixed top-0 left-0 right-0 z-[500] transition-all duration-300 ease-in-out bg-white shadow-sm py-4`}
       >
         <div className="container mx-auto px-6 flex items-center justify-between">
           <Link to="/" onClick={() => isHome && window.scrollTo({ top: 0, behavior: 'smooth' })} className="z-50 relative hover:opacity-80 transition-opacity">
